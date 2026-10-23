@@ -115,10 +115,11 @@ const HERO_CONTENT = {
     feature1: "التركيز التام على المرونة واللياقة",
     feature2: "عدة بسيطة وبرنامج يتكيف معك",
     ctaPrimary: "تواصل مع كوتش نوح",
-    ctaSecondary: "جدول المتابعة والتسعيرة",
+    ctaSecondary: "الحاسبة",
     footerLocation: "جلسات تدريب شخصية حضورية ومخصصة في سلطنة عُمان",
+    // تم إضافة رقم كوتش نوح (+968 9448 6154) مباشرة في الرابط
     whatsappUrl:
-      "https://wa.me/?text=مرحباً%20كابتن%20نوح،%20أود%20الاستفسار%20عن%20جلسات%20التدريب%20الشخصي",
+      "https://wa.me/96894486154?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
     cards: {
       leftTop: {
         title: "المرونة واللياقة",
@@ -155,10 +156,11 @@ const HERO_CONTENT = {
     feature1: "Focused on mobility & physical fitness",
     feature2: "Minimal gear with an adaptable routine",
     ctaPrimary: "Chat with Coach Nouh",
-    ctaSecondary: "Tracking & Pricing Plans",
+    ctaSecondary: "Calculator",
     footerLocation: "Private In-Person Personal Coaching Sessions in Oman",
+    // تم إضافة رقم كوتش نوح في النسخة الإنجليزية أيضاً
     whatsappUrl:
-      "https://wa.me/?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20your%20personal%20coaching%20sessions",
+      "https://wa.me/96894486154?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20your%20personal%20coaching%20sessions",
     cards: {
       leftTop: {
         title: "Mobility & Fitness",
@@ -187,7 +189,6 @@ const HERO_CONTENT = {
     },
   },
 };
-
 export default function HeroSection({ lang = "ar" }) {
   const isRtl = lang === "ar";
   const t = HERO_CONTENT[lang] || HERO_CONTENT.ar;
@@ -310,7 +311,7 @@ export default function HeroSection({ lang = "ar" }) {
             </a>
 
             <a
-              href="#pricing-and-tracking"
+              href="#calculator"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-6 py-3 rounded-full bg-athar-lime hover:bg-athar-lime-hover text-athar-forest-deep font-extrabold text-xs sm:text-sm shadow-xs transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
             >
               <span>{t.ctaSecondary}</span>

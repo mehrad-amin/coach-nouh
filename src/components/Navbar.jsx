@@ -20,13 +20,14 @@ const NAV_CONTENT = {
     links: [
       { label: "الرئيسية", href: "#" },
       { label: "منهجية التدريب", href: "#methodology" },
-      { label: "جدول المتابعة", href: "#tracking" },
+      { label: "الحاسبة", href: "#calculator" },
       { label: "التسعيرة والاشتراك", href: "#pricing" },
     ],
     whatsappCta: "تواصل واتساب",
     langToggle: "English",
+    // اتصال مستقیم به واتس‌اپ کابتن نوح با پیام آماده عربی
     whatsappUrl:
-      "https://wa.me/?text=مرحباً%20كابتن%20نوح،%20أود%20الاستفسار%20عن%20جلسات%20التدريب%20الشخصي",
+      "https://wa.me/96894486154?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
   },
   en: {
     brandName: "COACH NOUH",
@@ -34,13 +35,14 @@ const NAV_CONTENT = {
     links: [
       { label: "Home", href: "#" },
       { label: "Methodology", href: "#methodology" },
-      { label: "Progress Tracking", href: "#tracking" },
+      { label: "Calculator", href: "#calculator" },
       { label: "Pricing & Plans", href: "#pricing" },
     ],
     whatsappCta: "WhatsApp Coach",
     langToggle: "العربية",
+    // اتصال مستقیم با پیام آماده انگلیسی
     whatsappUrl:
-      "https://wa.me/?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20personal%20coaching",
+      "https://wa.me/96894486154?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20personal%20coaching",
   },
 };
 
