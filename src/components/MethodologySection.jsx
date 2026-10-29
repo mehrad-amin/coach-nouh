@@ -12,36 +12,30 @@ import {
   Target,
 } from "lucide-react";
 
-/* -------------------------------------------------------------------------- */
-/* آیکون‌های وکتوری ستون‌های سه‌گانه متدولوژی مربی نوح                        */
-/* -------------------------------------------------------------------------- */
 function MethodIcon({ type }) {
   if (type === "autonomy") {
     return (
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-athar-lime/50 bg-athar-lime/20 text-athar-forest-deep shadow-2xs shrink-0">
-        <ShieldCheck className="h-5 w-5 text-athar-forest-deep" />
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-athar-lime/40 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.25)] shrink-0">
+        <ShieldCheck className="h-5 w-5" />
       </div>
     );
   }
 
   if (type === "mobility") {
     return (
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-athar-forest/20 bg-athar-forest text-athar-lime shadow-2xs shrink-0">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-500/15 text-emerald-300 shadow-[0_0_15px_rgba(52,199,123,0.2)] shrink-0">
         <Activity className="h-5 w-5" />
       </div>
     );
   }
 
   return (
-    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-athar-border bg-athar-cream-dark text-athar-forest shadow-2xs shrink-0">
-      <Zap className="h-5 w-5 text-athar-forest" />
+    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/[0.08] text-athar-cream shadow-xs shrink-0">
+      <Zap className="h-5 w-5 text-athar-lime" />
     </div>
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* محتوای متدولوژی به عربی سفید، سلیس و تفکیک‌شده                             */
-/* -------------------------------------------------------------------------- */
 const METHODOLOGY_DATA = {
   ar: {
     badge: "فلسفة التدريب • كوتش نوح",
@@ -195,49 +189,43 @@ export default function MethodologySection({
     <section
       id="methodology"
       dir={isRtl ? "rtl" : "ltr"}
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-athar-cream border-b border-athar-border"
+      className="relative w-full pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
     >
-      {/* -------------------------------------------------------------------------- */}
-      {/* فرم‌های هندسی توپر و استاتیک در کناره‌های پس‌زمینه                         */}
-      {/* -------------------------------------------------------------------------- */}
+      {/* هاله‌های نوری استودیویی پیوسته در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* دایره کرم تیره در بالا - راست */}
-        <div className="absolute -top-16 -right-16 sm:-top-28 sm:-right-28 w-60 h-60 sm:w-96 sm:h-96 rounded-full bg-athar-cream-dark" />
-
-        {/* دایره لیمویی در حاشیه سمت چپ */}
-        <div className="absolute top-1/2 -left-20 sm:-left-32 -translate-y-1/2 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-athar-lime/25" />
-
-        {/* دایره سبز ملایم در پایین - راست */}
-        <div className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-24 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-forest/10" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
+        <div className="absolute top-1/3 -right-24 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
+        <div className="absolute -bottom-24 left-10 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* هدر بخش متدولوژی */}
         <div className="mb-12 text-center md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-athar-border shadow-2xs mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-athar-forest" />
-            <span className="text-xs font-bold text-athar-forest-deep">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
+            <Sparkles className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <span className="text-xs font-bold text-athar-cream tracking-wide">
               {t.badge}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-athar-forest-deep leading-tight max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight max-w-3xl mx-auto">
             {t.title}
           </h2>
 
-          <p className="mt-3.5 text-xs sm:text-sm md:text-base text-athar-muted max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="mt-3.5 text-xs sm:text-sm md:text-base text-slate-300/90 max-w-2xl mx-auto leading-relaxed font-medium">
             {t.subtitle}
           </p>
         </div>
 
         {/* کارت معرفی فلسفه و تصویر مربی نوح */}
-        <div className="mb-14 sm:mb-16 rounded-3xl border border-athar-border bg-white p-6 sm:p-8 md:p-10 shadow-athar-soft">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* ستون اول: عکس مربی (بدون دایره مزاحم) + معرفی و فلسفه */}
+        <div className="mb-14 sm:mb-16 rounded-3xl border border-white/10 bg-[#08130e] p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-20 -end-20 w-64 h-64 rounded-full bg-athar-lime/10 blur-[80px]" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+            {/* ستون اول: عکس مربی + معرفی و فلسفه */}
             <div className="lg:col-span-6 flex flex-col items-start text-start">
               <div className="flex items-center gap-4 w-full">
-                {/* کادر پرتره مربی با نسبت ۳ به ۴ شیک و تمیز */}
-                <div className="relative w-20 sm:w-24 md:w-28 aspect-[3/4] shrink-0 rounded-2xl overflow-hidden border border-athar-border bg-athar-cream shadow-athar-soft">
+                <div className="relative w-20 sm:w-24 md:w-28 aspect-[3/4] shrink-0 rounded-2xl overflow-hidden border border-athar-lime/30 bg-[#0a1a12] shadow-[0_0_20px_rgba(167,217,87,0.15)] ring-1 ring-white/10">
                   <img
                     src={coachImage}
                     alt={t.coachCard.name}
@@ -249,43 +237,43 @@ export default function MethodologySection({
                 </div>
 
                 <div className="leading-tight">
-                  <span className="text-lg sm:text-2xl font-black text-athar-forest-deep block">
+                  <span className="text-lg sm:text-2xl font-black text-white block">
                     {t.coachCard.name}
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-athar-muted block mt-1">
+                  <span className="text-xs sm:text-sm font-bold text-athar-lime block mt-1">
                     {t.coachCard.tag}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-athar-forest mt-1.5">
-                    <Compass className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 mt-1.5">
+                    <Compass className="w-3.5 h-3.5 text-athar-lime" />
                     <span>{t.coachCard.location}</span>
                   </span>
                 </div>
               </div>
 
               {/* رویکرد تمرینی مربی */}
-              <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-athar-cream/40 border border-athar-border/80 w-full text-start">
-                <span className="text-[11px] font-bold text-athar-forest block mb-1">
+              <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-white/[0.04] border border-white/10 w-full text-start">
+                <span className="text-[11px] font-bold text-athar-lime block mb-1">
                   {t.coachCard.bioTitle}
                 </span>
-                <p className="text-xs sm:text-sm text-athar-forest-deep leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
                   {t.coachCard.bioText}
                 </p>
               </div>
 
-              {/* فلسفه تمرین */}
-              <div className="relative mt-3 p-3.5 sm:p-4 rounded-2xl bg-athar-cream border border-athar-border text-start w-full">
-                <span className="text-[11px] font-bold text-athar-forest block mb-1">
+              {/* مانیفست مربی */}
+              <div className="relative mt-3 p-3.5 sm:p-4 rounded-2xl bg-linear-to-r from-athar-lime/[0.08] via-white/[0.03] to-transparent border-s-2 border-athar-lime text-start w-full">
+                <span className="text-[11px] font-bold text-athar-lime block mb-1">
                   {t.coachCard.missionTitle}
                 </span>
-                <p className="text-xs sm:text-sm text-athar-forest-deep font-semibold leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-athar-cream font-semibold leading-relaxed italic">
                   {t.coachCard.missionQuote}
                 </p>
               </div>
             </div>
 
-            {/* ستون دوم: ساختار و ویژگی‌های جلسات */}
-            <div className="lg:col-span-6 flex flex-col justify-center border-t lg:border-t-0 lg:border-r lg:rtl:border-r-0 lg:rtl:border-l border-athar-border/80 pt-6 lg:pt-0 lg:px-6">
-              <h3 className="text-base sm:text-lg font-black text-athar-forest-deep mb-3.5 text-start">
+            {/* ستون دوم: ساختار جلسات */}
+            <div className="lg:col-span-6 flex flex-col justify-center border-t lg:border-t-0 lg:border-r lg:rtl:border-r-0 lg:rtl:border-l border-white/10 pt-6 lg:pt-0 lg:px-6">
+              <h3 className="text-base sm:text-lg font-black text-white mb-3.5 text-start">
                 {isRtl
                   ? "تفاصيل الحصص التدريبية:"
                   : "Session Format & Execution:"}
@@ -295,18 +283,18 @@ export default function MethodologySection({
                 {t.coachCard.bulletPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-3 rounded-xl bg-athar-cream/60 border border-athar-border text-start"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 text-start transition-colors"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-athar-lime-hover shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm font-bold text-athar-forest-deep leading-relaxed">
+                    <CheckCircle2 className="h-4 w-4 text-athar-lime shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-bold text-slate-100 leading-relaxed">
                       {item}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-athar-muted border-t border-athar-border/70 pt-4 text-start">
-                <Target className="h-4 w-4 text-athar-forest shrink-0" />
+              <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 border-t border-white/10 pt-4 text-start">
+                <Target className="h-4 w-4 text-athar-lime shrink-0" />
                 <span>{t.coachCard.footnote}</span>
               </div>
             </div>
@@ -314,7 +302,7 @@ export default function MethodologySection({
         </div>
 
         {/* -------------------------------------------------------------------------- */}
-        {/* نمای موبایل: کاروسل سه‌بعدی طبقه‌ای با وضوح و شارپنس کامل                    */}
+        {/* نمای موبایل: رنگ دقیقاً برابر دسکتاپ (#08130e)، مات، شارپ و بدون تاری         */}
         {/* -------------------------------------------------------------------------- */}
         <div
           className="relative block md:hidden w-full select-none cursor-pointer"
@@ -323,10 +311,7 @@ export default function MethodologySection({
           onTouchEnd={handleTouchEnd}
           onClick={goToNextCard}
         >
-          <div
-            className="relative mx-auto h-[290px] w-full max-w-[330px]"
-            style={{ perspective: "1000px" }}
-          >
+          <div className="relative mx-auto h-[300px] w-full max-w-[330px]">
             {t.pillars.map((pillar, index) => {
               const count = t.pillars.length;
               let diff = (index - activeIndex) % count;
@@ -342,16 +327,16 @@ export default function MethodologySection({
               const dirFactor = isRtl ? 1 : -1;
 
               if (isActive) {
-                transformStyle = "translateX(0px) scale(1)";
+                transformStyle = "translate3d(0px, 0px, 0px)";
                 opacity = 1;
               } else if (diff === 1) {
-                transformStyle = `translateX(${-26 * dirFactor}px) scale(0.93)`;
+                transformStyle = `translate3d(${-26 * dirFactor}px, 0px, 0px) scale(0.94)`;
                 opacity = 0.85;
               } else if (diff === -1) {
-                transformStyle = `translateX(${26 * dirFactor}px) scale(0.93)`;
+                transformStyle = `translate3d(${26 * dirFactor}px, 0px, 0px) scale(0.94)`;
                 opacity = 0.85;
               } else {
-                transformStyle = `translateX(${diff * 40 * dirFactor}px) scale(0.85)`;
+                transformStyle = `translate3d(${diff * 40 * dirFactor}px, 0px, 0px) scale(0.85)`;
                 opacity = 0;
               }
 
@@ -362,42 +347,51 @@ export default function MethodologySection({
                     transform: transformStyle,
                     zIndex,
                     opacity,
+                    backgroundColor: "#08130e",
                     WebkitBackfaceVisibility: "hidden",
                     backfaceVisibility: "hidden",
-                    transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                    WebkitFontSmoothing: "subpixel-antialiased",
+                    transition:
+                      "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease",
                   }}
-                  className={`absolute inset-0 flex flex-col justify-between rounded-2xl border p-5 text-start bg-white transform-gpu ${
-                    isActive ? "shadow-athar-float" : "shadow-athar-soft"
-                  } ${
+                  className={`absolute inset-0 flex flex-col justify-between rounded-3xl border p-6 text-start antialiased shadow-2xl ${
                     isLead
-                      ? "border-athar-forest/40 ring-1 ring-athar-lime/60"
-                      : "border-athar-border"
+                      ? "border-athar-lime/40 ring-1 ring-athar-lime/40 shadow-[0_15px_35px_rgba(0,0,0,0.8),0_0_20px_rgba(167,217,87,0.12)]"
+                      : "border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.8)]"
                   }`}
                 >
-                  <div>
+                  <div
+                    className={`transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                  >
                     <div className="flex w-full items-center justify-between">
                       <MethodIcon type={pillar.id} />
                       <span
-                        className={`inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
+                        className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${
                           isLead
-                            ? "bg-athar-forest text-athar-lime"
-                            : "bg-athar-cream-dark text-athar-forest"
+                            ? "bg-athar-lime/20 text-athar-lime border border-athar-lime/30 shadow-xs"
+                            : "bg-white/10 text-slate-300 border border-white/10"
                         }`}
                       >
                         {pillar.badge}
                       </span>
                     </div>
 
-                    <h3 className="mt-3.5 text-base font-black text-athar-forest-deep leading-tight">
+                    <h3 className="mt-4 text-lg font-black text-white leading-tight">
                       {pillar.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-athar-muted font-medium line-clamp-4">
+                    <p className="mt-2.5 text-xs leading-relaxed text-slate-300 font-medium line-clamp-4">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-1.5 border-t border-athar-border pt-2.5 text-[11px] font-bold text-athar-forest">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-athar-lime-hover shrink-0" />
+                  <div
+                    className={`flex items-center gap-2 border-t border-white/10 pt-3 text-xs font-bold text-athar-lime transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-athar-lime shrink-0" />
                     <span className="line-clamp-1">{pillar.proof}</span>
                   </div>
                 </div>
@@ -414,23 +408,23 @@ export default function MethodologySection({
                   e.stopPropagation();
                   setActiveIndex(idx);
                 }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   activeIndex === idx
-                    ? "w-6 bg-athar-forest shadow-xs"
-                    : "w-1.5 bg-athar-border"
+                    ? "w-6 bg-athar-lime shadow-[0_0_10px_rgba(167,217,87,0.5)]"
+                    : "w-1.5 bg-white/20"
                 }`}
                 aria-label={`Pillar ${idx + 1}`}
               />
             ))}
           </div>
 
-          <p className="mt-2 text-center text-[10px] font-semibold text-athar-muted">
+          <p className="mt-2 text-center text-[10px] font-semibold text-slate-400">
             {t.swipeHint}
           </p>
         </div>
 
         {/* -------------------------------------------------------------------------- */}
-        {/* نمای دسکتاپ: ۳ ستون لوکس مجله‌ای                                            */}
+        {/* نمای دسکتاپ: ۳ ستون هماهنگ با رنگ #08130e                                    */}
         {/* -------------------------------------------------------------------------- */}
         <div className="hidden md:grid md:grid-cols-3 gap-6">
           {t.pillars.map((pillar) => {
@@ -439,10 +433,10 @@ export default function MethodologySection({
             return (
               <div
                 key={pillar.id}
-                className={`group relative flex flex-col justify-between rounded-3xl border p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 text-start bg-white shadow-athar-soft ${
+                className={`group relative flex flex-col justify-between rounded-3xl border p-6 sm:p-7 transition-all duration-300 hover:-translate-y-2 text-start bg-[#08130e] ${
                   isLead
-                    ? "border-athar-forest/30 ring-2 ring-athar-lime/40 hover:shadow-athar-float"
-                    : "border-athar-border hover:border-athar-forest/30"
+                    ? "border-athar-lime/40 ring-1 ring-athar-lime/40 shadow-[0_10px_30px_rgba(167,217,87,0.12)] hover:shadow-[0_15px_40px_rgba(167,217,87,0.2)]"
+                    : "border-white/10 hover:border-white/20 shadow-xl"
                 }`}
               >
                 <div>
@@ -451,25 +445,25 @@ export default function MethodologySection({
                     <span
                       className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${
                         isLead
-                          ? "bg-athar-forest text-athar-lime shadow-2xs"
-                          : "bg-athar-cream-dark text-athar-forest"
+                          ? "bg-athar-lime/20 text-athar-lime border border-athar-lime/30 shadow-xs"
+                          : "bg-white/10 text-slate-300 border border-white/10"
                       }`}
                     >
                       {pillar.badge}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-lg lg:text-xl font-black text-athar-forest-deep group-hover:text-athar-forest transition-colors leading-tight">
+                  <h3 className="mt-4 text-lg lg:text-xl font-black text-white group-hover:text-athar-lime transition-colors leading-tight">
                     {pillar.title}
                   </h3>
 
-                  <p className="mt-2.5 text-xs lg:text-sm leading-relaxed text-athar-muted font-medium">
+                  <p className="mt-2.5 text-xs lg:text-sm leading-relaxed text-slate-300 font-medium">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 flex items-center gap-2 border-t border-athar-border pt-4 text-xs font-bold text-athar-forest">
-                  <CheckCircle2 className="h-4 w-4 text-athar-lime-hover shrink-0" />
+                <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 text-xs font-bold text-athar-lime">
+                  <CheckCircle2 className="h-4 w-4 text-athar-lime shrink-0" />
                   <span>{pillar.proof}</span>
                 </div>
               </div>

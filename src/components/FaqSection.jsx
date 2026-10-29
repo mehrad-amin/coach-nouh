@@ -112,12 +112,12 @@ const FAQ_DATA = {
 
 export default function FaqSection({
   lang = "ar",
-  coachWhatsapp = "96894486154", // شماره رسمی واتس‌اپ کابتن نوح
+  coachWhatsapp = "96894486154",
 }) {
   const isRtl = lang === "ar";
   const ui = FAQ_DATA[lang] || FAQ_DATA.ar;
 
-  const [openIndex, setOpenIndex] = useState(0); // باز بودن نخستین سؤال به صورت پیش‌فرض برای تجربه کاربری بهتر
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFaq = (idx) => {
     setOpenIndex((prev) => (prev === idx ? null : idx));
@@ -132,37 +132,35 @@ export default function FaqSection({
     <section
       id="faq"
       dir={isRtl ? "rtl" : "ltr"}
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-athar-cream border-b border-athar-border transition-colors"
+      className="relative w-full py-16 md:py-24 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
     >
-      {/* -------------------------------------------------------------------------- */}
-      {/* دایره‌های هندسی استاتیک و مینیمال پس‌زمینه (چیدمان بدون همپوشانی)            */}
-      {/* -------------------------------------------------------------------------- */}
+      {/* هاله‌های نوری استودیویی در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* ۱. دایره کرم تیره در گوشه بالا - راست (متضاد با دایره پایین چپِ سکشن قیمت‌گذاری) */}
-        <div className="absolute -top-16 -right-16 sm:-top-28 sm:-right-28 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-cream-dark" />
+        {/* هاله بالایی */}
+        <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
 
-        {/* ۲. دایره لیمویی در حاشیه سمت چپ */}
-        <div className="absolute top-1/2 -left-20 sm:-left-32 -translate-y-1/2 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-athar-lime/25" />
+        {/* هاله میانی سمت راست */}
+        <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
 
-        {/* ۳. دایره سبز ملایم در پایین - راست */}
-        <div className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-24 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-forest/10" />
+        {/* هاله پایینی */}
+        <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
         {/* هدر بخش سؤالات متداول */}
         <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-athar-border shadow-2xs mb-3">
-            <HelpCircle className="h-3.5 w-3.5 text-athar-forest" />
-            <span className="text-xs font-bold text-athar-forest-deep">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
+            <HelpCircle className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <span className="text-xs font-bold text-athar-cream tracking-wide">
               {ui.sectionBadge}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-athar-forest-deep leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight">
             {ui.sectionTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-athar-muted max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl mx-auto leading-relaxed font-medium">
             {ui.sectionSubtitle}
           </p>
         </div>
@@ -176,15 +174,15 @@ export default function FaqSection({
             return (
               <div
                 key={idx}
-                className={`relative overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${
+                className={`relative overflow-hidden rounded-2xl border transition-all duration-300 antialiased ${
                   isOpen
-                    ? "border-athar-forest/40 shadow-athar-soft ring-1 ring-athar-lime/50"
-                    : "border-athar-border shadow-2xs hover:border-athar-forest/30"
+                    ? "border-athar-lime/45 bg-[#0a1811] shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_20px_rgba(167,217,87,0.1)] ring-1 ring-athar-lime/30"
+                    : "border-white/15 bg-[#08130e] shadow-md hover:border-white/25 hover:bg-[#0a1711]"
                 }`}
               >
                 {/* خط ظریف بالای کارت در وضعیت باز */}
                 <div
-                  className={`pointer-events-none absolute inset-x-0 top-0 h-[2.5px] bg-athar-lime transition-opacity duration-300 ${
+                  className={`pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-athar-lime transition-opacity duration-300 ${
                     isOpen ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -198,16 +196,14 @@ export default function FaqSection({
                   <div className="flex items-center gap-3.5 min-w-0">
                     <span
                       className={`font-sans text-xs font-black shrink-0 transition-colors ${
-                        isOpen ? "text-athar-forest" : "text-athar-muted"
+                        isOpen ? "text-athar-lime" : "text-slate-400"
                       }`}
                     >
                       {formattedIdx}
                     </span>
                     <span
                       className={`text-sm sm:text-base font-black transition-colors leading-snug ${
-                        isOpen
-                          ? "text-athar-forest-deep"
-                          : "text-athar-forest-deep/90"
+                        isOpen ? "text-white" : "text-slate-200"
                       }`}
                     >
                       {faq.question}
@@ -217,11 +213,11 @@ export default function FaqSection({
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
                       isOpen
-                        ? "rotate-45 border-athar-forest bg-athar-forest text-athar-lime shadow-2xs"
-                        : "border-athar-border bg-athar-cream/70 text-athar-forest"
+                        ? "rotate-45 border-athar-lime bg-athar-lime text-athar-forest-deep shadow-[0_0_12px_rgba(167,217,87,0.35)]"
+                        : "border-white/15 bg-white/[0.05] text-slate-300"
                     }`}
                   >
-                    <Plus className="h-4 w-4" />
+                    <Plus className="h-4 w-4 stroke-[2.5]" />
                   </div>
                 </button>
 
@@ -234,8 +230,8 @@ export default function FaqSection({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="border-t border-athar-border/70 mx-5 pt-3.5 pb-5">
-                      <p className="text-xs sm:text-sm leading-relaxed text-athar-muted font-medium text-start">
+                    <div className="border-t border-white/10 mx-5 pt-3.5 pb-5">
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-300 font-medium text-start">
                         {faq.answer}
                       </p>
                     </div>
@@ -247,16 +243,16 @@ export default function FaqSection({
         </div>
 
         {/* کارت ارتباط مستقیم واتس‌اپ با کابتن نوح */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl border border-athar-border bg-white p-5 sm:p-6 text-center sm:text-start shadow-athar-soft sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-6 text-center sm:text-start shadow-xl sm:flex-row antialiased">
           <div className="flex items-center gap-3.5">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-athar-forest text-athar-lime shadow-2xs">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
               <MessageCircle className="h-5 w-5" />
             </div>
             <div className="leading-tight text-start">
-              <p className="text-xs sm:text-sm font-black text-athar-forest-deep">
+              <p className="text-xs sm:text-sm font-black text-white">
                 {ui.askMoreTitle}
               </p>
-              <p className="mt-1 text-[11px] sm:text-xs text-athar-muted font-medium">
+              <p className="mt-1 text-[11px] sm:text-xs text-slate-300 font-medium">
                 {ui.askMoreDesc}
               </p>
             </div>
@@ -266,13 +262,13 @@ export default function FaqSection({
             href={whatsappDirectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-athar-forest hover:bg-athar-forest-deep px-5 py-3 text-xs font-bold text-white shadow-athar-soft transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-athar-lime hover:bg-athar-lime-hover px-5 py-3 text-xs font-black text-athar-forest-deep shadow-[0_0_20px_rgba(167,217,87,0.35)] transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
           >
             <span>{ui.whatsappBtn}</span>
             {isRtl ? (
-              <ArrowLeft className="h-4 w-4 text-athar-lime shrink-0 transition-transform duration-200 group-hover:-translate-x-1" />
+              <ArrowLeft className="h-4 w-4 text-athar-forest-deep shrink-0 transition-transform duration-200 group-hover:-translate-x-1 stroke-[2.5]" />
             ) : (
-              <ArrowRight className="h-4 w-4 text-athar-lime shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-athar-forest-deep shrink-0 transition-transform duration-200 group-hover:translate-x-1 stroke-[2.5]" />
             )}
           </a>
         </div>

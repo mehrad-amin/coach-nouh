@@ -35,7 +35,7 @@ const ARAB_COUNTRIES = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/* بسته‌های سه‌گانه رسمی کابتن نوح                                            */
+/* بسته‌های سه‌گانه رسمی کابتن نوح                                              */
 /* -------------------------------------------------------------------------- */
 const DEFAULT_NOUH_PLANS = {
   ar: [
@@ -83,7 +83,7 @@ const DEFAULT_NOUH_PLANS = {
 };
 
 /* -------------------------------------------------------------------------- */
-/* محتوای متنی استعلام و ثبت‌نام به زبان عربی سفید و سلیس                      */
+/* محتوای متنی استعلام و ثبت‌نام به زبان عربی سفید و سلیس                     */
 /* -------------------------------------------------------------------------- */
 const BOOKING_UI_TEXT = {
   ar: {
@@ -396,7 +396,6 @@ export default function BookingForm({ lang = "ar" }) {
       isCalcMissing: false,
     });
 
-    // بررسی ثبت داده‌های ماشین‌حساب نوح
     let currentStats = calcData;
     if (!currentStats) {
       try {
@@ -490,7 +489,6 @@ export default function BookingForm({ lang = "ar" }) {
         isCalcMissing: false,
       });
     } catch (err) {
-      // در صورت عدم پیکربندی روت سرور، فال‌بک امن به موفقیت با آی‌دی کلاینت
       const fallbackFileId = `NOUH-${Math.floor(1000 + Math.random() * 9000)}`;
       setResultMeta({
         coachPhone: "96894486154",
@@ -513,20 +511,20 @@ export default function BookingForm({ lang = "ar" }) {
       formData.location;
 
     const calText = calcData?.result?.targetCalories
-      ? `\n• ${ui.success.waTargetCal} *${calcData.result.targetCalories} kcal*`
+      ? `\n${ui.success.waTargetCal} *${calcData.result.targetCalories} kcal*`
       : "";
 
     const weightText = calcData?.weight
-      ? `\n• ${ui.success.waWeight} *${calcData.weight} kg*`
+      ? `\n${ui.success.waWeight} *${calcData.weight} kg*`
       : "";
 
     const trainingDaysText = formData.trainingDays
-      ? `\n• ${ui.success.waTrainingDays} *${formData.trainingDays} ${ui.trainingDaysUnit}*`
+      ? `\n${ui.success.waTrainingDays} *${formData.trainingDays} ${ui.trainingDaysUnit}*`
       : "";
 
-    const locationText = `\n• ${ui.success.waLocation} *${currentLocationLabel}*`;
+    const locationText = `\n${ui.success.waLocation} *${currentLocationLabel}*`;
 
-    const waMessage = `${ui.success.waHello}\n${ui.success.waIm} *${formData.name}*، ${ui.success.waRegistered}\n📌 *${currentPlan.title}* (${currentPlan.price} - ${currentPlan.duration})\n📋 ${ui.success.fileIdLabel} \`\`\`${resultMeta.fileId}\`\`\`\n\n${ui.success.waBiometricsHeader}${locationText}${weightText}${calText}${trainingDaysText}\n\n${ui.success.waReady}`;
+    const waMessage = `${ui.success.waHello}\n${ui.success.waIm} *${formData.name}*، ${ui.success.waRegistered}\n📌 *${currentPlan.title} (${currentPlan.price} - ${currentPlan.duration})*\n📋 ${ui.success.fileIdLabel} \`\`\`${resultMeta.fileId}\`\`\`\n\n${ui.success.waBiometricsHeader}${locationText}${weightText}${calText}${trainingDaysText}\n\n${ui.success.waReady}`;
 
     const waLink = `https://wa.me/${cleanCoachPhone}?text=${encodeURIComponent(
       waMessage,
@@ -536,27 +534,33 @@ export default function BookingForm({ lang = "ar" }) {
       <section
         id="booking"
         dir={isRtl ? "rtl" : "ltr"}
-        className="relative w-full py-16 md:py-24 overflow-hidden bg-athar-cream border-b border-athar-border transition-colors"
+        className="relative w-full py-16 md:py-24 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
       >
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
+          <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
+          <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
+        </div>
+
         <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-athar-border bg-white p-8 sm:p-12 text-center shadow-athar-float">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-athar-forest text-athar-lime shadow-2xs">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#08120d]/95 p-8 sm:p-12 text-center shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl antialiased">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_20px_rgba(167,217,87,0.3)]">
               <Check className="h-8 w-8 stroke-[3]" />
             </div>
 
-            <span className="mt-5 inline-block font-sans text-xs font-black text-athar-forest bg-athar-lime/20 px-3 py-1 rounded-full border border-athar-lime/40">
+            <span className="mt-5 inline-block font-sans text-xs font-black text-athar-lime bg-athar-lime/15 px-3.5 py-1 rounded-full border border-athar-lime/30">
               {ui.success.fileIdLabel} {resultMeta.fileId}
             </span>
 
-            <h3 className="mt-3 text-2xl sm:text-3xl font-black text-athar-forest-deep">
+            <h3 className="mt-3 text-2xl sm:text-3xl font-black text-white">
               {ui.success.title}
             </h3>
 
-            <p className="mx-auto mt-2 text-sm font-bold text-athar-forest">
+            <p className="mx-auto mt-2 text-sm font-bold text-athar-lime">
               {ui.success.confirmed} {currentPlan.title} ({currentPlan.price})
             </p>
 
-            <p className="mx-auto mt-3 max-w-lg text-xs sm:text-sm leading-relaxed text-athar-muted font-medium">
+            <p className="mx-auto mt-3 max-w-lg text-xs sm:text-sm leading-relaxed text-slate-300 font-medium">
               {ui.success.desc}
             </p>
 
@@ -565,10 +569,10 @@ export default function BookingForm({ lang = "ar" }) {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-athar-forest hover:bg-athar-forest-deep px-8 py-4 text-xs sm:text-sm font-black text-white shadow-athar-soft transition-all active:scale-[0.98] sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-athar-lime hover:bg-athar-lime-hover px-8 py-4 text-xs sm:text-sm font-black text-athar-forest-deep shadow-[0_0_25px_rgba(167,217,87,0.4)] transition-all active:scale-[0.98] sm:w-auto"
               >
                 <span>{ui.success.whatsappBtn}</span>
-                <ExternalLink className="h-4 w-4 text-athar-lime" />
+                <ExternalLink className="h-4 w-4 stroke-[2.5]" />
               </a>
 
               <button
@@ -594,7 +598,7 @@ export default function BookingForm({ lang = "ar" }) {
                     isCalcMissing: false,
                   });
                 }}
-                className="w-full cursor-pointer rounded-full border border-athar-border bg-athar-cream/70 px-6 py-4 text-xs font-bold text-athar-forest transition-colors hover:bg-white sm:w-auto"
+                className="w-full cursor-pointer rounded-full border border-white/15 bg-white/[0.05] px-6 py-4 text-xs font-bold text-slate-200 transition-colors hover:bg-white/[0.1] sm:w-auto"
               >
                 {ui.success.newFormBtn}
               </button>
@@ -611,47 +615,40 @@ export default function BookingForm({ lang = "ar" }) {
     <section
       id="booking"
       dir={isRtl ? "rtl" : "ltr"}
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-athar-cream border-b border-athar-border transition-colors"
+      className="relative w-full py-16 md:py-24 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
     >
-      {/* -------------------------------------------------------------------------- */}
-      {/* دایره‌های هندسی استاتیک و مینیمال پس‌زمینه (متضاد با سکشن تماس)              */}
-      {/* -------------------------------------------------------------------------- */}
+      {/* هاله‌های نوری استودیویی در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* ۱. دایره کرم تیره در بالا - راست */}
-        <div className="absolute -top-16 -right-16 sm:-top-28 sm:-right-28 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-cream-dark" />
-
-        {/* ۲. دایره لیمویی در حاشیه سمت چپ */}
-        <div className="absolute top-1/2 -left-20 sm:-left-32 -translate-y-1/2 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-athar-lime/25" />
-
-        {/* ۳. دایره سبز ملایم در پایین - راست */}
-        <div className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-24 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-forest/10" />
+        <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
+        <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
+        <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* هدر بخش فرم */}
         <div className="mb-10 text-center md:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-athar-border shadow-2xs mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-athar-forest" />
-            <span className="text-xs font-bold text-athar-forest-deep">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
+            <Sparkles className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <span className="text-xs font-bold text-athar-cream tracking-wide">
               {ui.sectionBadge}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-athar-forest-deep leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight">
             {ui.sectionTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-athar-muted max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl mx-auto leading-relaxed font-medium">
             {ui.sectionSubtitle}
           </p>
         </div>
 
-        {/* کارت اصلی فرم */}
-        <div className="relative overflow-hidden rounded-3xl border border-athar-border bg-white p-6 sm:p-10 shadow-athar-soft text-start">
+        {/* کارت اصلی فرم (دارک گلس‌مورفیسم لوکس) */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#08120d]/95 p-6 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl text-start antialiased">
           {/* بخش بج‌های زنده الصاق‌شده */}
           {hasAnyBadge && (
-            <div className="mb-8 space-y-3 rounded-2xl border border-athar-border bg-athar-cream/40 p-4 sm:p-5">
-              <div className="flex items-center gap-2 text-xs font-bold text-athar-forest">
+            <div className="mb-8 space-y-3 rounded-2xl border border-white/10 bg-black/40 p-4 sm:p-5">
+              <div className="flex items-center gap-2 text-xs font-bold text-athar-lime">
                 <Sparkles className="h-4 w-4" />
                 <span>{ui.badgesContainerTitle}</span>
               </div>
@@ -659,35 +656,35 @@ export default function BookingForm({ lang = "ar" }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                 {/* ۱. بج بیومکانیک */}
                 {biomechanicsData && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-border bg-white p-3 shadow-2xs">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-sm">
                     <div>
                       <div className="flex items-start justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-forest">
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-lime">
                           <Activity className="h-3.5 w-3.5" />
                           <span>{ui.badgeBiomechanicsTitle}</span>
                         </span>
                         <button
                           type="button"
                           onClick={handleRemoveBiomechanics}
-                          className="cursor-pointer rounded-lg p-0.5 text-athar-muted hover:text-red-500"
+                          className="cursor-pointer rounded-lg p-0.5 text-slate-400 hover:text-red-400"
                           title={ui.dismissBadge}
                         >
                           <X className="h-3.5 w-3.5" />
                         </button>
                       </div>
 
-                      <h4 className="mt-1 text-xs font-bold text-athar-forest-deep">
+                      <h4 className="mt-1 text-xs font-bold text-white">
                         {isRtl
                           ? biomechanicsData.nameAr || biomechanicsData.name
                           : biomechanicsData.nameEn || biomechanicsData.name}
                       </h4>
                     </div>
 
-                    <div className="mt-2 flex items-center justify-between border-t border-athar-border/70 pt-1.5 text-[10px]">
-                      <span className="text-athar-muted">
+                    <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-1.5 text-[10px]">
+                      <span className="text-slate-400">
                         {ui.screeningFocusLabel}
                       </span>
-                      <span className="font-bold text-athar-forest truncate max-w-[65%] text-end">
+                      <span className="font-bold text-athar-lime truncate max-w-[65%] text-end">
                         {biomechanicsData.riskReduction || "معتمد"}
                       </span>
                     </div>
@@ -696,17 +693,17 @@ export default function BookingForm({ lang = "ar" }) {
 
                 {/* ۲. بج ماشین‌حساب نوح */}
                 {calcData && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-border bg-white p-3 shadow-2xs">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-sm">
                     <div>
                       <div className="flex items-start justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-forest">
-                          <Flame className="h-3.5 w-3.5 text-amber-600" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-400">
+                          <Flame className="h-3.5 w-3.5 fill-current" />
                           <span>{ui.badgeCalculatorTitle}</span>
                         </span>
                         <button
                           type="button"
                           onClick={handleRemoveCalculator}
-                          className="cursor-pointer rounded-lg p-0.5 text-athar-muted hover:text-red-500"
+                          className="cursor-pointer rounded-lg p-0.5 text-slate-400 hover:text-red-400"
                           title={ui.dismissBadge}
                         >
                           <X className="h-3.5 w-3.5" />
@@ -714,24 +711,22 @@ export default function BookingForm({ lang = "ar" }) {
                       </div>
 
                       <div className="mt-1 flex items-baseline gap-1.5">
-                        <span className="font-sans text-lg font-black text-athar-forest-deep">
+                        <span className="font-sans text-lg font-black text-white">
                           {calcData.result?.targetCalories ||
                             calcData.result?.calories}
                         </span>
-                        <span className="font-sans text-[10px] font-bold text-athar-forest">
+                        <span className="font-sans text-[10px] font-bold text-athar-lime">
                           {isRtl ? "سعرة" : "KCAL"}
                         </span>
-                        <span className="text-[10px] text-athar-muted font-medium ms-auto truncate">
+                        <span className="text-[10px] text-slate-400 font-medium ms-auto truncate">
                           {calcData.weight}kg • {calcData.height}cm
                         </span>
                       </div>
                     </div>
 
-                    <div className="mt-2 flex items-center justify-between border-t border-athar-border/70 pt-1.5 text-[10px]">
-                      <span className="text-athar-muted">
-                        {ui.forecastLabel}
-                      </span>
-                      <span className="font-bold text-athar-forest truncate">
+                    <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-1.5 text-[10px]">
+                      <span className="text-slate-400">{ui.forecastLabel}</span>
+                      <span className="font-bold text-athar-lime truncate">
                         {calcData.result?.goal || calcData.goal}
                       </span>
                     </div>
@@ -740,33 +735,33 @@ export default function BookingForm({ lang = "ar" }) {
 
                 {/* ۳. بج پلن قیمتی */}
                 {selectedPlanMeta && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-lime/50 bg-athar-lime/10 p-3 shadow-2xs">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-lime/40 bg-athar-lime/10 p-3 shadow-sm">
                     <div>
                       <div className="flex items-start justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-forest-deep">
-                          <ShieldCheck className="h-3.5 w-3.5 text-athar-forest" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-lime">
+                          <ShieldCheck className="h-3.5 w-3.5" />
                           <span>{ui.badgePlanTitle}</span>
                         </span>
                         <button
                           type="button"
                           onClick={handleRemovePlan}
-                          className="cursor-pointer rounded-lg p-0.5 text-athar-muted hover:text-red-500"
+                          className="cursor-pointer rounded-lg p-0.5 text-slate-400 hover:text-red-400"
                           title={ui.dismissBadge}
                         >
                           <X className="h-3.5 w-3.5" />
                         </button>
                       </div>
 
-                      <h4 className="mt-1 text-xs font-black text-athar-forest-deep">
+                      <h4 className="mt-1 text-xs font-black text-white">
                         {selectedPlanMeta.title}
                       </h4>
                     </div>
 
-                    <div className="mt-2 flex items-center justify-between border-t border-athar-border/70 pt-1.5 text-[10px]">
-                      <span className="text-athar-muted">
+                    <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-1.5 text-[10px]">
+                      <span className="text-slate-300">
                         {selectedPlanMeta.duration}
                       </span>
-                      <span className="font-sans text-xs font-black text-athar-forest">
+                      <span className="font-sans text-xs font-black text-athar-lime">
                         {selectedPlanMeta.price}
                       </span>
                     </div>
@@ -780,8 +775,8 @@ export default function BookingForm({ lang = "ar" }) {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* ۱. انتخاب بسته تمرینی */}
             <div>
-              <label className="mb-2.5 block text-xs font-bold text-athar-forest-deep">
-                {ui.planSectionTitle} <span className="text-red-500">*</span>
+              <label className="mb-2.5 block text-xs font-bold text-slate-200">
+                {ui.planSectionTitle} <span className="text-red-400">*</span>
               </label>
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
                 {availablePlans.map((plan) => {
@@ -798,16 +793,14 @@ export default function BookingForm({ lang = "ar" }) {
                       }
                       className={`relative flex flex-col justify-between rounded-2xl border p-3.5 text-start transition-all cursor-pointer ${
                         isSelected
-                          ? "border-athar-forest bg-athar-forest/10 ring-1 ring-athar-lime/60 shadow-2xs"
-                          : "border-athar-border bg-athar-cream/40 hover:border-athar-forest/30 hover:bg-white"
+                          ? "border-athar-lime/60 bg-athar-lime/15 ring-1 ring-athar-lime/50 shadow-[0_0_15px_rgba(167,217,87,0.15)]"
+                          : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]"
                       }`}
                     >
                       <div className="flex w-full items-center justify-between">
                         <span
                           className={`text-xs font-black ${
-                            isSelected
-                              ? "text-athar-forest"
-                              : "text-athar-forest-deep"
+                            isSelected ? "text-athar-lime" : "text-white"
                           }`}
                         >
                           {plan.title}
@@ -815,20 +808,18 @@ export default function BookingForm({ lang = "ar" }) {
                         <span
                           className={`flex h-4 w-4 items-center justify-center rounded-full border transition-colors ${
                             isSelected
-                              ? "border-athar-forest bg-athar-forest"
-                              : "border-athar-border bg-white"
+                              ? "border-athar-lime bg-athar-lime"
+                              : "border-white/20 bg-black/40"
                           }`}
                         >
                           {isSelected && (
-                            <span className="h-1.5 w-1.5 rounded-full bg-athar-lime" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-athar-forest-deep" />
                           )}
                         </span>
                       </div>
-                      <div className="mt-2.5 flex items-baseline justify-between border-t border-athar-border/70 pt-2 text-[11px]">
-                        <span className="text-athar-muted">
-                          {plan.duration}
-                        </span>
-                        <span className="font-sans font-bold text-athar-forest-deep">
+                      <div className="mt-2.5 flex items-baseline justify-between border-t border-white/10 pt-2 text-[11px]">
+                        <span className="text-slate-400">{plan.duration}</span>
+                        <span className="font-sans font-bold text-athar-lime">
                           {plan.price}
                         </span>
                       </div>
@@ -843,9 +834,9 @@ export default function BookingForm({ lang = "ar" }) {
               <div>
                 <label
                   htmlFor="booking-name"
-                  className="mb-2 block text-xs font-bold text-athar-forest-deep"
+                  className="mb-2 block text-xs font-bold text-slate-200"
                 >
-                  {ui.nameLabel} <span className="text-red-500">*</span>
+                  {ui.nameLabel} <span className="text-red-400">*</span>
                 </label>
                 <input
                   id="booking-name"
@@ -855,36 +846,36 @@ export default function BookingForm({ lang = "ar" }) {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder={ui.namePlaceholder}
-                  className="w-full rounded-2xl border border-athar-border bg-athar-cream/30 p-3.5 text-sm text-athar-forest-deep placeholder-athar-muted/70 outline-none transition-all focus:border-athar-forest focus:bg-white"
+                  className="w-full rounded-2xl border border-white/15 bg-black/40 p-3.5 text-sm text-white placeholder-slate-400 outline-none transition-all focus:border-athar-lime focus:bg-black/60"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="booking-phone"
-                  className="mb-2 block text-xs font-bold text-athar-forest-deep"
+                  className="mb-2 block text-xs font-bold text-slate-200"
                 >
-                  {ui.phoneLabel} <span className="text-red-500">*</span>
+                  {ui.phoneLabel} <span className="text-red-400">*</span>
                 </label>
-                <div className="relative flex rounded-2xl border border-athar-border bg-athar-cream/30 transition-all focus-within:border-athar-forest focus-within:bg-white">
-                  <div className="relative flex items-center border-e border-athar-border bg-athar-cream/80 rounded-s-2xl px-2.5">
+                <div className="relative flex rounded-2xl border border-white/15 bg-black/40 transition-all focus-within:border-athar-lime focus-within:bg-black/60">
+                  <div className="relative flex items-center border-e border-white/15 bg-white/[0.06] rounded-s-2xl px-2.5">
                     <select
                       value={countryCode}
                       onChange={(e) => setCountryCode(e.target.value)}
-                      className="cursor-pointer appearance-none bg-transparent pe-5 text-xs font-sans font-bold text-athar-forest-deep outline-none"
+                      className="cursor-pointer appearance-none bg-transparent pe-5 text-xs font-sans font-bold text-white outline-none"
                       dir="ltr"
                     >
                       {ARAB_COUNTRIES.map((c) => (
                         <option
                           key={c.code}
                           value={c.code}
-                          className="bg-white text-athar-forest-deep"
+                          className="bg-[#08120d] text-white"
                         >
                           {c.flag} {c.code}
                         </option>
                       ))}
                     </select>
-                    <span className="pointer-events-none absolute end-2 text-[10px] text-athar-muted">
+                    <span className="pointer-events-none absolute end-2 text-[10px] text-slate-400">
                       ▼
                     </span>
                   </div>
@@ -898,7 +889,7 @@ export default function BookingForm({ lang = "ar" }) {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder={ui.phonePlaceholder}
-                    className="w-full bg-transparent p-3.5 font-sans text-sm text-athar-forest-deep placeholder-athar-muted/70 outline-none"
+                    className="w-full bg-transparent p-3.5 font-sans text-sm text-white placeholder-slate-400 outline-none"
                   />
                 </div>
               </div>
@@ -909,9 +900,9 @@ export default function BookingForm({ lang = "ar" }) {
               <div>
                 <label
                   htmlFor="booking-location"
-                  className="mb-2 block text-xs font-bold text-athar-forest-deep flex items-center gap-1"
+                  className="mb-2 block text-xs font-bold text-slate-200 flex items-center gap-1"
                 >
-                  <Compass className="w-3.5 h-3.5 text-athar-forest" />
+                  <Compass className="w-3.5 h-3.5 text-athar-lime" />
                   <span>{ui.locationLabel}</span>
                 </label>
                 <select
@@ -919,13 +910,13 @@ export default function BookingForm({ lang = "ar" }) {
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full rounded-2xl border border-athar-border bg-athar-cream/30 p-3.5 text-sm text-athar-forest-deep outline-none transition-colors focus:border-athar-forest focus:bg-white"
+                  className="w-full rounded-2xl border border-white/15 bg-black/40 p-3.5 text-sm text-white outline-none transition-colors focus:border-athar-lime focus:bg-black/60"
                 >
                   {ui.locations.map((loc) => (
                     <option
                       key={loc.id}
                       value={loc.id}
-                      className="bg-white text-athar-forest-deep"
+                      className="bg-[#08120d] text-white"
                     >
                       {loc.label}
                     </option>
@@ -936,7 +927,7 @@ export default function BookingForm({ lang = "ar" }) {
               <div>
                 <label
                   htmlFor="booking-goal"
-                  className="mb-2 block text-xs font-bold text-athar-forest-deep"
+                  className="mb-2 block text-xs font-bold text-slate-200"
                 >
                   {ui.goalLabel}
                 </label>
@@ -945,13 +936,13 @@ export default function BookingForm({ lang = "ar" }) {
                   name="goal"
                   value={formData.goal}
                   onChange={handleInputChange}
-                  className="w-full rounded-2xl border border-athar-border bg-athar-cream/30 p-3.5 text-sm text-athar-forest-deep outline-none transition-colors focus:border-athar-forest focus:bg-white"
+                  className="w-full rounded-2xl border border-white/15 bg-black/40 p-3.5 text-sm text-white outline-none transition-colors focus:border-athar-lime focus:bg-black/60"
                 >
                   {ui.goals.map((g) => (
                     <option
                       key={g.id}
                       value={g.id}
-                      className="bg-white text-athar-forest-deep"
+                      className="bg-[#08120d] text-white"
                     >
                       {g.label}
                     </option>
@@ -963,7 +954,7 @@ export default function BookingForm({ lang = "ar" }) {
             {/* ۴. سابقه تمرینی و روزهای تمرین در هفته */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+                <span className="mb-2 block text-xs font-bold text-slate-200">
                   {ui.experienceLabel}
                 </span>
                 <div className="grid grid-cols-3 gap-1.5">
@@ -976,8 +967,8 @@ export default function BookingForm({ lang = "ar" }) {
                       }
                       className={`cursor-pointer rounded-xl border p-2.5 text-center text-[11px] font-bold transition-all ${
                         formData.experience === exp.id
-                          ? "border-athar-forest bg-athar-forest text-white shadow-2xs"
-                          : "border-athar-border bg-athar-cream/40 text-athar-muted hover:border-athar-forest/30 hover:text-athar-forest"
+                          ? "border-athar-lime bg-athar-lime text-athar-forest-deep shadow-xs"
+                          : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25 hover:text-white"
                       }`}
                     >
                       {exp.label.split(" ")[0]}
@@ -988,11 +979,11 @@ export default function BookingForm({ lang = "ar" }) {
 
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-xs font-bold text-athar-forest-deep flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-athar-forest" />
+                  <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                    <Calendar className="h-3.5 w-3.5 text-athar-lime" />
                     <span>{ui.trainingDaysLabel}</span>
                   </label>
-                  <span className="font-sans text-xs font-black text-athar-forest">
+                  <span className="font-sans text-xs font-black text-athar-lime">
                     {formData.trainingDays} {ui.trainingDaysUnit}
                   </span>
                 </div>
@@ -1012,8 +1003,8 @@ export default function BookingForm({ lang = "ar" }) {
                         }
                         className={`cursor-pointer flex flex-col items-center justify-center rounded-xl border p-2.5 transition-all ${
                           isSelected
-                            ? "border-athar-forest bg-athar-forest text-white shadow-2xs"
-                            : "border-athar-border bg-athar-cream/40 text-athar-muted hover:border-athar-forest/30 hover:text-athar-forest"
+                            ? "border-athar-lime bg-athar-lime text-athar-forest-deep shadow-xs"
+                            : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25 hover:text-white"
                         }`}
                       >
                         <span className="font-sans text-xs font-black">
@@ -1030,7 +1021,7 @@ export default function BookingForm({ lang = "ar" }) {
             <div>
               <label
                 htmlFor="booking-notes"
-                className="mb-2 block text-xs font-bold text-athar-forest-deep"
+                className="mb-2 block text-xs font-bold text-slate-200"
               >
                 {ui.notesLabel}
               </label>
@@ -1041,7 +1032,7 @@ export default function BookingForm({ lang = "ar" }) {
                 value={formData.notes}
                 onChange={handleInputChange}
                 placeholder={ui.notesPlaceholder}
-                className="w-full rounded-2xl border border-athar-border bg-athar-cream/30 p-3.5 text-sm text-athar-forest-deep placeholder-athar-muted/70 outline-none transition-all focus:border-athar-forest focus:bg-white"
+                className="w-full rounded-2xl border border-white/15 bg-black/40 p-3.5 text-sm text-white placeholder-slate-400 outline-none transition-all focus:border-athar-lime focus:bg-black/60"
               />
             </div>
 
@@ -1050,12 +1041,12 @@ export default function BookingForm({ lang = "ar" }) {
               <div
                 className={`rounded-2xl border p-4 text-xs transition-all flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 ${
                   status.isCalcMissing
-                    ? "border-amber-400/50 bg-amber-50 text-amber-900"
-                    : "border-red-400/50 bg-red-50 text-red-900"
+                    ? "border-amber-400/50 bg-amber-500/10 text-amber-300"
+                    : "border-red-400/50 bg-red-500/10 text-red-300"
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <AlertCircle className="h-5 w-5 shrink-0 text-amber-700" />
+                  <AlertCircle className="h-5 w-5 shrink-0 text-amber-400" />
                   <span className="font-semibold leading-relaxed">
                     {status.error}
                   </span>
@@ -1064,7 +1055,7 @@ export default function BookingForm({ lang = "ar" }) {
                   <button
                     type="button"
                     onClick={scrollToCalculator}
-                    className="cursor-pointer shrink-0 rounded-full bg-athar-forest px-4 py-2 text-[11px] font-bold text-white transition-transform hover:bg-athar-forest-deep active:scale-95"
+                    className="cursor-pointer shrink-0 rounded-full bg-athar-lime px-4 py-2 text-[11px] font-black text-athar-forest-deep transition-transform hover:bg-athar-lime-hover active:scale-95"
                   >
                     {ui.goToCalcBtn}
                   </button>
@@ -1076,11 +1067,11 @@ export default function BookingForm({ lang = "ar" }) {
             <button
               type="submit"
               disabled={status.loading}
-              className="relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-athar-forest hover:bg-athar-forest-deep py-4 text-center text-xs sm:text-sm font-black text-white shadow-athar-soft transition-all active:scale-[0.98] disabled:opacity-50"
+              className="relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-athar-lime hover:bg-athar-lime-hover py-4 text-center text-xs sm:text-sm font-black text-athar-forest-deep shadow-[0_0_28px_rgba(167,217,87,0.4)] transition-all active:scale-[0.98] disabled:opacity-50"
             >
               {status.loading ? (
                 <div className="flex items-center gap-2">
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-athar-forest-deep border-t-transparent" />
                   <span>{ui.submitLoading}</span>
                 </div>
               ) : (
@@ -1089,9 +1080,9 @@ export default function BookingForm({ lang = "ar" }) {
                     {ui.submitPrefix} {currentPlan.title} {ui.submitSuffix}
                   </span>
                   {isRtl ? (
-                    <ArrowLeft className="h-4 w-4 text-athar-lime" />
+                    <ArrowLeft className="h-4 w-4 stroke-[2.5]" />
                   ) : (
-                    <ArrowRight className="h-4 w-4 text-athar-lime" />
+                    <ArrowRight className="h-4 w-4 stroke-[2.5]" />
                   )}
                 </>
               )}

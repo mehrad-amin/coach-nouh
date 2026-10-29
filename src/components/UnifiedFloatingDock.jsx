@@ -103,19 +103,20 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
           : "opacity-100 translate-y-0 pointer-events-auto"
       }`}
     >
-      <div className="w-full rounded-2xl sm:rounded-3xl border border-athar-border bg-white/95 backdrop-blur-xl p-2 sm:p-2.5 shadow-athar-float">
+      {/* کانتینر اصلی نوار شناور با دارک گلس‌مورفیسم لوکس و سایه نوری لیمویی */}
+      <div className="w-full rounded-2xl sm:rounded-3xl border border-white/15 bg-[#08120d]/90 backdrop-blur-2xl p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_20px_rgba(167,217,87,0.12)] antialiased">
         <div className="flex items-center justify-between gap-2 sm:gap-3">
-          {/* ردیف بج‌های تعاملی با اسکرول افقی بسیار نرم و بدون شکستگی */}
+          {/* ردیف بج‌های تعاملی با اسکرول افقی بدون شکستگی */}
           <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 min-w-0 flex-1">
             {/* ۱. بج ارزیابی حرکتی و مفاصل */}
             {biomechanics && (
-              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-athar-cream border border-athar-border px-2.5 py-1.5 text-athar-forest-deep shadow-2xs">
-                <Activity className="w-3.5 h-3.5 text-athar-forest animate-pulse shrink-0" />
+              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-white/[0.05] border border-white/10 px-2.5 py-1.5 text-white shadow-xs">
+                <Activity className="w-3.5 h-3.5 text-athar-lime animate-pulse shrink-0" />
                 <span className="text-[11px] font-black truncate max-w-[100px] sm:max-w-[130px]">
                   {bioDisplayName}
                 </span>
                 {biomechanics.riskReduction && (
-                  <span className="text-[9px] font-sans font-bold text-athar-forest bg-athar-lime/30 px-1 py-0.5 rounded">
+                  <span className="text-[9px] font-sans font-bold text-athar-lime bg-athar-lime/20 border border-athar-lime/30 px-1 py-0.5 rounded">
                     -{biomechanics.riskReduction}
                   </span>
                 )}
@@ -126,7 +127,7 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
                     sessionStorage.removeItem("user_biomechanics_audit");
                     setBiomechanics(null);
                   }}
-                  className="p-0.5 text-athar-muted hover:text-athar-forest transition-colors cursor-pointer"
+                  className="p-0.5 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -135,12 +136,12 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
 
             {/* ۲. بج کالری محاسبه‌شده از ماشین‌حساب نوح */}
             {calcData && (
-              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-athar-cream border border-athar-border px-2.5 py-1.5 text-athar-forest-deep shadow-2xs">
-                <Flame className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="text-[11px] font-sans font-black text-athar-forest-deep">
+              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-white/[0.05] border border-white/10 px-2.5 py-1.5 text-white shadow-xs">
+                <Flame className="w-3.5 h-3.5 text-amber-400 fill-current shrink-0" />
+                <span className="text-[11px] font-sans font-black text-white">
                   {calcData.result?.targetCalories || calcData.result?.calories}
                 </span>
-                <span className="text-[9px] font-bold text-athar-muted">
+                <span className="text-[9px] font-bold text-athar-lime">
                   {isRtl ? "سعرة" : "KCAL"}
                 </span>
                 <button
@@ -150,7 +151,7 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
                     sessionStorage.removeItem("user_fitness_data");
                     setCalcData(null);
                   }}
-                  className="p-0.5 text-athar-muted hover:text-athar-forest transition-colors cursor-pointer"
+                  className="p-0.5 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -159,12 +160,12 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
 
             {/* ۳. بج اشتراک و بسته تمرینی انتخابی */}
             {selectedPlan && (
-              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-athar-lime/20 border border-athar-lime/50 px-2.5 py-1.5 text-athar-forest-deep shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-athar-forest shrink-0" />
+              <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-athar-lime/15 border border-athar-lime/40 px-2.5 py-1.5 text-white shadow-xs ring-1 ring-athar-lime/30">
+                <ShieldCheck className="w-3.5 h-3.5 text-athar-lime shrink-0" />
                 <span className="text-[11px] font-black truncate max-w-[90px] sm:max-w-[120px]">
                   {planDisplayName}
                 </span>
-                <span className="text-[10px] font-sans font-bold text-athar-forest whitespace-nowrap">
+                <span className="text-[10px] font-sans font-bold text-athar-lime whitespace-nowrap">
                   {selectedPlan.price}
                 </span>
                 <button
@@ -174,7 +175,7 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
                     sessionStorage.removeItem("user_selected_plan");
                     setSelectedPlan(null);
                   }}
-                  className="p-0.5 text-athar-muted hover:text-athar-forest transition-colors cursor-pointer"
+                  className="p-0.5 text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -182,14 +183,14 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
             )}
           </div>
 
-          {/* دکمه اقدام نهایی: انتقال سریع و نرم به فرم ثبت‌نام (#booking) */}
+          {/* دکمه اقدام نهایی لیمویی با کنتراست و درخشش نئونی */}
           <button
             type="button"
             onClick={scrollToBooking}
-            className="shrink-0 flex items-center justify-center gap-1.5 cursor-pointer rounded-xl sm:rounded-2xl bg-athar-forest hover:bg-athar-forest-deep text-white px-3.5 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-black shadow-athar-soft transition-all duration-200 active:scale-95 whitespace-nowrap"
+            className="shrink-0 flex items-center justify-center gap-1.5 cursor-pointer rounded-xl sm:rounded-2xl bg-athar-lime hover:bg-athar-lime-hover text-athar-forest-deep px-3.5 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-black shadow-[0_0_18px_rgba(167,217,87,0.35)] transition-all duration-200 active:scale-95 whitespace-nowrap"
           >
             <span>{isRtl ? "استكمال الحجز" : "Proceed to Booking"}</span>
-            <ArrowDown className="w-3.5 h-3.5 text-athar-lime animate-bounce" />
+            <ArrowDown className="w-3.5 h-3.5 stroke-[2.5] text-athar-forest-deep animate-bounce" />
           </button>
         </div>
       </div>

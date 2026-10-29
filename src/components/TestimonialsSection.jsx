@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
-/* کامپوننت ستاره‌های امتیازدهی لوکس                                          */
+/* کامپوننت ستاره‌های امتیازدهی با درخشش نئونی لیمویی                         */
 /* -------------------------------------------------------------------------- */
 function RatingStars({ count = 5 }) {
   return (
@@ -21,7 +21,7 @@ function RatingStars({ count = 5 }) {
       {[...Array(count)].map((_, i) => (
         <Star
           key={i}
-          className="h-3.5 w-3.5 fill-athar-lime text-athar-forest drop-shadow-[0_1px_3px_rgba(27,77,58,0.15)]"
+          className="h-3.5 w-3.5 fill-athar-lime text-athar-lime drop-shadow-[0_0_8px_rgba(167,217,87,0.45)]"
         />
       ))}
     </div>
@@ -238,36 +238,42 @@ export default function TestimonialsSection({ lang = "ar" }) {
     <section
       id="testimonials"
       dir={isRtl ? "rtl" : "ltr"}
-      className="relative w-full overflow-hidden bg-athar-cream py-16 md:py-24 border-b border-athar-border"
+      /* یکدست با رنگ زمینه پیوسته #06100b بدون هیچ خط مرزی کدر */
+      className="relative w-full overflow-hidden bg-[#06100b] py-16 md:py-24 selection:bg-athar-lime selection:text-athar-forest-deep"
     >
-      {/* دایره‌های هندسی استاتیک و مینیمال پس‌زمینه */}
+      {/* هاله‌های نوری سینمایی امتداد یافته از سکشن متدولوژی */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute -top-16 -left-16 sm:-top-28 sm:-left-28 w-60 h-60 sm:w-96 sm:h-96 rounded-full bg-athar-cream-dark" />
-        <div className="absolute top-1/2 -right-20 sm:-right-32 -translate-y-1/2 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-athar-lime/20" />
-        <div className="absolute -bottom-24 -left-16 sm:-bottom-32 sm:-left-24 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-forest/10" />
+        {/* هاله اتصال در بالا */}
+        <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
+
+        {/* هاله زمردی در مرکز سمت راست */}
+        <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
+
+        {/* هاله پایینی برای اتصال به سکشن بعدی */}
+        <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* هدر بخش نظرات */}
         <div className="mb-10 text-center md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-athar-border shadow-2xs mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-athar-forest" />
-            <span className="text-xs font-bold text-athar-forest-deep">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
+            <Sparkles className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <span className="text-xs font-bold text-athar-cream tracking-wide">
               {header.badge}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-athar-forest-deep leading-tight max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight max-w-3xl mx-auto">
             {header.title}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-athar-muted max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl mx-auto leading-relaxed font-medium">
             {header.subtitle}
           </p>
         </div>
       </div>
 
-      {/* اسلایدر مرکزی */}
+      {/* اسلایدر مرکزی با عمق سینمایی */}
       <div
         ref={scrollContainerRef}
         onScroll={handleScroll}
@@ -291,63 +297,65 @@ export default function TestimonialsSection({ lang = "ar" }) {
                 scrollSnapAlign: "center",
                 WebkitBackfaceVisibility: "hidden",
                 transform: isActive ? "scale(1)" : "scale(0.93)",
-                opacity: isActive ? 1 : 0.6,
+                opacity: isActive ? 1 : 0.55,
               }}
-              className="shrink-0 cursor-pointer transition-all duration-300 ease-out will-change-transform w-[84vw] sm:w-[480px] md:w-[540px] text-start"
+              className="shrink-0 cursor-pointer transition-all duration-300 ease-out will-change-transform w-[85vw] sm:w-[480px] md:w-[540px] text-start antialiased"
             >
+              {/* بدنه کارت با گلس‌مورفیسم لوکس تیره */}
               <div
-                className={`relative flex flex-col justify-between rounded-3xl border p-6 sm:p-8 bg-white transition-all duration-300 transform-gpu ${
+                className={`relative flex flex-col justify-between rounded-3xl border p-6 sm:p-8 transition-all duration-300 transform-gpu ${
                   isActive
-                    ? "border-athar-forest/30 ring-1 ring-athar-lime/50 shadow-athar-float"
-                    : "border-athar-border shadow-athar-soft hover:border-athar-forest/20"
+                    ? "bg-[#0b1611] border-athar-lime/45 ring-1 ring-athar-lime/40 shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_25px_rgba(167,217,87,0.15)]"
+                    : "bg-[#08120d]/90 border-white/10 shadow-xl hover:border-white/20"
                 }`}
               >
                 {/* ردیف ستاره‌ها و بج موضوع */}
-                <div className="flex items-center justify-between gap-2 border-b border-athar-border/70 pb-4">
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-4">
                   <RatingStars count={review.rating || 5} />
                   <span
-                    className={`rounded-full px-3 py-0.5 text-[11px] font-bold shrink-0 whitespace-nowrap ${
+                    className={`rounded-full px-3 py-1 text-[11px] font-bold shrink-0 whitespace-nowrap transition-colors ${
                       isActive
-                        ? "bg-athar-forest text-athar-lime shadow-2xs"
-                        : "bg-athar-cream-dark text-athar-forest"
+                        ? "bg-athar-lime/20 text-athar-lime border border-athar-lime/30 shadow-xs"
+                        : "bg-white/10 text-slate-300 border border-white/10"
                     }`}
                   >
                     {review.tag}
                   </span>
                 </div>
 
-                {/* شاخص پیشرفت */}
+                {/* شاخص پیشرفت با کنتراست شفاف */}
                 <div className="mt-5 flex items-baseline gap-2">
-                  <span className="font-sans text-2xl font-black text-athar-forest-deep sm:text-3xl">
+                  <span className="font-sans text-2xl sm:text-3xl font-black text-white drop-shadow-xs">
                     {review.statNumber}
                   </span>
-                  <span className="text-xs font-bold text-athar-muted">
+                  <span className="text-xs font-bold text-slate-300">
                     {review.statLabel}
                   </span>
                 </div>
 
                 {/* متن نظر شاگرد */}
                 <div className="relative my-4">
-                  <Quote className="pointer-events-none absolute -top-3 -start-2 -z-0 h-7 w-7 text-athar-cream-dark" />
-                  <p className="relative z-10 text-xs sm:text-sm leading-relaxed text-athar-forest font-semibold">
+                  <Quote className="pointer-events-none absolute -top-3 -start-2 -z-0 h-8 w-8 text-white/[0.04]" />
+                  <p className="relative z-10 text-xs sm:text-sm leading-relaxed text-slate-200 font-medium">
                     &ldquo;{review.quote}&rdquo;
                   </p>
                 </div>
 
-                {/* ردیف پایین: مشخصات شاگرد + بج دوره با تضمین ۱۰۰٪ تک‌خطی ماندن در موبایل */}
-                <div className="flex items-center justify-between gap-2.5 sm:gap-4 border-t border-athar-border/70 pt-4">
+                {/* ردیف پایین: مشخصات شاگرد + بج دوره */}
+                <div className="flex items-center justify-between gap-2.5 sm:gap-4 border-t border-white/10 pt-4">
                   <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border border-athar-forest/15 bg-athar-forest text-athar-lime font-black text-xs sm:text-sm shadow-2xs">
+                    {/* آواتار با حاشیه درخشان */}
+                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border border-athar-lime/30 bg-[#0a1a12] text-athar-lime font-black text-xs sm:text-sm shadow-[0_0_12px_rgba(167,217,87,0.2)]">
                       {review.clientName?.charAt(0) || "م"}
                     </div>
                     <div className="leading-tight min-w-0 flex-1">
-                      <h4 className="text-xs sm:text-sm font-black text-athar-forest-deep truncate">
+                      <h4 className="text-xs sm:text-sm font-black text-white truncate">
                         {review.clientName}
                       </h4>
-                      <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-athar-muted mt-0.5 truncate">
+                      <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-slate-300 mt-0.5 truncate">
                         <span className="truncate">{review.role}</span>
                         <span className="shrink-0">•</span>
-                        <span className="inline-flex items-center gap-0.5 font-semibold text-athar-forest shrink-0">
+                        <span className="inline-flex items-center gap-0.5 font-semibold text-athar-lime shrink-0">
                           <MapPin className="w-2.5 h-2.5" />
                           {review.city}
                         </span>
@@ -355,10 +363,10 @@ export default function TestimonialsSection({ lang = "ar" }) {
                     </div>
                   </div>
 
-                  {/* بج طول دوره: کاملاً تک‌خطی با shrink-0 و whitespace-nowrap */}
+                  {/* بج طول دوره */}
                   {review.duration && (
-                    <span className="shrink-0 whitespace-nowrap inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-athar-border bg-athar-cream/70 px-2.5 py-1 text-[10.5px] sm:text-[11px] font-bold text-athar-forest-deep shadow-2xs">
-                      <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-athar-lime-hover shrink-0" />
+                    <span className="shrink-0 whitespace-nowrap inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[10.5px] sm:text-[11px] font-bold text-slate-200 shadow-2xs">
+                      <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-athar-lime shrink-0" />
                       <span>{review.duration}</span>
                     </span>
                   )}
@@ -370,25 +378,25 @@ export default function TestimonialsSection({ lang = "ar" }) {
       </div>
 
       {/* بخش کنترلر: شمارنده و دکمه‌های ناوبری چپ و راست */}
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mt-6 flex items-center justify-between">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 flex items-center justify-between">
         {/* شمارنده اسلاید */}
         <div className="flex items-center gap-1.5 font-sans text-xs sm:text-sm font-black">
-          <span className="text-athar-forest-deep">
+          <span className="text-white drop-shadow-xs">
             {String(activeIndex + 1).padStart(2, "0")}
           </span>
-          <span className="text-athar-border font-normal">/</span>
-          <span className="text-athar-muted">
+          <span className="text-white/20 font-normal">/</span>
+          <span className="text-slate-400">
             {String(total).padStart(2, "0")}
           </span>
         </div>
 
-        {/* دکمه‌های ناوبری با تفکیک صحیح جهت در RTL */}
+        {/* دکمه‌های ناوبری مدرن با افکت شیشه‌ای */}
         <div className="flex items-center gap-2.5">
           <button
             type="button"
             onClick={handlePrev}
             aria-label={isRtl ? "السابق" : "Previous"}
-            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-athar-border bg-white text-athar-forest shadow-2xs transition-all hover:bg-athar-forest hover:text-white active:scale-95 cursor-pointer"
+            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] text-slate-200 backdrop-blur-md shadow-md transition-all hover:bg-athar-lime hover:text-athar-forest-deep active:scale-95 cursor-pointer"
           >
             {isRtl ? (
               <ChevronRight className="h-5 w-5" />
@@ -401,7 +409,7 @@ export default function TestimonialsSection({ lang = "ar" }) {
             type="button"
             onClick={handleNext}
             aria-label={isRtl ? "التالي" : "Next"}
-            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-athar-border bg-white text-athar-forest shadow-2xs transition-all hover:bg-athar-forest hover:text-white active:scale-95 cursor-pointer"
+            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] text-slate-200 backdrop-blur-md shadow-md transition-all hover:bg-athar-lime hover:text-athar-forest-deep active:scale-95 cursor-pointer"
           >
             {isRtl ? (
               <ChevronLeft className="h-5 w-5" />

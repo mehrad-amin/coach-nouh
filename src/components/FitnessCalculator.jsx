@@ -20,6 +20,7 @@ import {
   User,
   Check,
   Calculator,
+  Sparkles,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -549,51 +550,52 @@ export default function FitnessCalculator({ lang = "ar" }) {
     <section
       id="calculator"
       dir={isRtl ? "rtl" : "ltr"}
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-athar-cream border-b border-athar-border transition-colors"
+      /* رنگ پس‌زمینه پایه #06100b جهت پیوستگی کامل با سکشن‌های قبل */
+      className="relative w-full py-16 md:py-24 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
     >
       {/* -------------------------------------------------------------------------- */}
-      {/* فرم‌های هندسی پس‌زمینه (انتقال دایره پایینی به گوشه سمت راست و پایین)       */}
+      {/* هاله‌های نوری استودیویی پیوسته در پس‌زمینه                                   */}
       {/* -------------------------------------------------------------------------- */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* ۱. دایره کرم تیره در بالا - راست */}
-        <div className="absolute -top-16 -right-16 sm:-top-28 sm:-right-28 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-cream-dark" />
+        {/* هاله اتصال بالایی */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
 
-        {/* ۲. دایره لیمویی در حاشیه سمت چپ */}
-        <div className="absolute top-1/2 -left-20 sm:-left-32 -translate-y-1/2 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-athar-lime/25" />
+        {/* هاله سمت راست */}
+        <div className="absolute top-1/3 -right-24 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
 
-        {/* ۳. دایره سبز ملایم در گوشه پایین - راست سکشن (جایگاه اصلاح‌شده) */}
-        <div className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-24 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-athar-forest/10" />
+        {/* هاله سمت چپ */}
+        <div className="absolute -bottom-24 left-10 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* هدر بخش ماشین‌حساب */}
         <div className="mb-10 text-center md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-athar-border shadow-2xs mb-3">
-            <Calculator className="h-3.5 w-3.5 text-athar-forest" />
-            <span className="text-xs font-bold text-athar-forest-deep">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
+            <Calculator className="h-3.5 w-3.5 text-athar-lime" />
+            <span className="text-xs font-bold text-athar-cream tracking-wide">
               {t.sectionBadge}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-athar-forest-deep leading-tight max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight max-w-3xl mx-auto">
             {t.sectionTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-athar-muted max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl mx-auto leading-relaxed font-medium">
             {t.sectionSubtitle}
           </p>
         </div>
 
-        {/* کانتینر کارت ماشین‌حساب */}
-        <div className="relative mx-auto w-full max-w-2xl overflow-hidden rounded-3xl border border-athar-border bg-white p-5 sm:p-8 md:p-10 shadow-athar-soft text-start">
+        {/* کانتینر اصلی کارت ماشین‌حساب (دارک گلس‌مورفیسم لوکس) */}
+        <div className="relative mx-auto w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#08120d]/95 p-5 sm:p-8 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl text-start">
           {/* سربرگ کارت و دکمه ریست */}
-          <div className="flex items-center justify-between border-b border-athar-border/70 pb-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-2.5">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-athar-forest opacity-60" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-athar-lime opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-athar-lime" />
               </span>
-              <span className="text-xs font-black tracking-wide text-athar-forest-deep">
+              <span className="text-xs font-black tracking-wide text-white">
                 {t.badge}
               </span>
             </div>
@@ -601,7 +603,7 @@ export default function FitnessCalculator({ lang = "ar" }) {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-athar-border bg-athar-cream/70 px-3 py-1 text-[11px] font-bold text-athar-muted transition-colors hover:border-red-400/50 hover:bg-red-50 hover:text-red-600"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.05] px-3 py-1 text-[11px] font-bold text-slate-300 transition-colors hover:border-red-400/50 hover:bg-red-500/10 hover:text-red-400"
               title={t.resetBtn}
             >
               <RotateCcw className="h-3 w-3" />
@@ -613,7 +615,7 @@ export default function FitnessCalculator({ lang = "ar" }) {
           <div className="mt-6 space-y-5">
             {/* انتخاب جنسیت */}
             <div>
-              <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+              <span className="mb-2 block text-xs font-bold text-slate-200">
                 {t.profileSection}
               </span>
               <div className="grid grid-cols-2 gap-3">
@@ -625,8 +627,8 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   }}
                   className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl border py-3 text-xs font-black transition-all ${
                     gender === "male"
-                      ? "border-athar-forest bg-athar-forest text-white shadow-athar-soft"
-                      : "border-athar-border bg-athar-cream/40 text-athar-muted hover:border-athar-forest/30 hover:text-athar-forest"
+                      ? "border-athar-lime bg-athar-lime text-athar-forest-deep shadow-[0_0_18px_rgba(167,217,87,0.35)]"
+                      : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25 hover:text-white"
                   }`}
                 >
                   <User className="h-4 w-4" />
@@ -640,8 +642,8 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   }}
                   className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl border py-3 text-xs font-black transition-all ${
                     gender === "female"
-                      ? "border-athar-forest bg-athar-forest text-white shadow-athar-soft"
-                      : "border-athar-border bg-athar-cream/40 text-athar-muted hover:border-athar-forest/30 hover:text-athar-forest"
+                      ? "border-athar-lime bg-athar-lime text-athar-forest-deep shadow-[0_0_18px_rgba(167,217,87,0.35)]"
+                      : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25 hover:text-white"
                   }`}
                 >
                   <User className="h-4 w-4" />
@@ -650,12 +652,12 @@ export default function FitnessCalculator({ lang = "ar" }) {
               </div>
             </div>
 
-            {/* اسلایدر وزن: با هماهنگی ۱۰۰٪ جهت اعداد در عربی و انگلیسی */}
-            <div className="rounded-2xl border border-athar-border bg-athar-cream/40 p-4">
+            {/* اسلایدر وزن */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <div className="flex items-center justify-between">
                 <label
                   htmlFor={weightInputId}
-                  className="text-xs font-bold text-athar-forest-deep"
+                  className="text-xs font-bold text-slate-200"
                 >
                   {t.weightLabel}
                 </label>
@@ -663,10 +665,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   className="flex items-baseline gap-1"
                   dir={isRtl ? "rtl" : "ltr"}
                 >
-                  <span className="font-sans text-2xl font-black text-athar-forest">
+                  <span className="font-sans text-2xl font-black text-athar-lime drop-shadow-xs">
                     {weight}
                   </span>
-                  <span className="text-[10px] font-sans font-bold text-athar-muted">
+                  <span className="text-[10px] font-sans font-bold text-slate-400">
                     {t.kgUnit}
                   </span>
                 </div>
@@ -683,11 +685,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   setWeight(Number(e.target.value));
                   setIsPinned(false);
                 }}
-                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-athar-cream-dark accent-athar-forest"
+                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-white/10 accent-athar-lime"
               />
-              {/* ردیف اعداد با چیدمان اصولی و هماهنگ با جهت لغزنده */}
               <div
-                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-athar-muted"
+                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-slate-400"
                 dir={isRtl ? "rtl" : "ltr"}
               >
                 <span>35 {t.kgUnit}</span>
@@ -697,11 +698,11 @@ export default function FitnessCalculator({ lang = "ar" }) {
             </div>
 
             {/* اسلایدر قد */}
-            <div className="rounded-2xl border border-athar-border bg-athar-cream/40 p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <div className="flex items-center justify-between">
                 <label
                   htmlFor={heightInputId}
-                  className="text-xs font-bold text-athar-forest-deep"
+                  className="text-xs font-bold text-slate-200"
                 >
                   {t.heightLabel}
                 </label>
@@ -709,10 +710,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   className="flex items-baseline gap-1"
                   dir={isRtl ? "rtl" : "ltr"}
                 >
-                  <span className="font-sans text-2xl font-black text-athar-forest-deep">
+                  <span className="font-sans text-2xl font-black text-athar-lime drop-shadow-xs">
                     {height}
                   </span>
-                  <span className="text-[10px] font-sans font-bold text-athar-muted">
+                  <span className="text-[10px] font-sans font-bold text-slate-400">
                     {t.cmUnit}
                   </span>
                 </div>
@@ -729,10 +730,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   setHeight(Number(e.target.value));
                   setIsPinned(false);
                 }}
-                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-athar-cream-dark accent-athar-forest"
+                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-white/10 accent-athar-lime"
               />
               <div
-                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-athar-muted"
+                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-slate-400"
                 dir={isRtl ? "rtl" : "ltr"}
               >
                 <span>130 {t.cmUnit}</span>
@@ -742,11 +743,11 @@ export default function FitnessCalculator({ lang = "ar" }) {
             </div>
 
             {/* اسلایدر سن */}
-            <div className="rounded-2xl border border-athar-border bg-athar-cream/40 p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <div className="flex items-center justify-between">
                 <label
                   htmlFor={ageInputId}
-                  className="text-xs font-bold text-athar-forest-deep"
+                  className="text-xs font-bold text-slate-200"
                 >
                   {t.ageLabel}
                 </label>
@@ -754,10 +755,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   className="flex items-baseline gap-1"
                   dir={isRtl ? "rtl" : "ltr"}
                 >
-                  <span className="font-sans text-2xl font-black text-athar-forest-deep">
+                  <span className="font-sans text-2xl font-black text-athar-lime drop-shadow-xs">
                     {age}
                   </span>
-                  <span className="text-[10px] font-bold text-athar-muted">
+                  <span className="text-[10px] font-bold text-slate-400">
                     {t.yearsUnit}
                   </span>
                 </div>
@@ -774,10 +775,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   setAge(Number(e.target.value));
                   setIsPinned(false);
                 }}
-                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-athar-cream-dark accent-athar-forest"
+                className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-lg bg-white/10 accent-athar-lime"
               />
               <div
-                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-athar-muted"
+                className="mt-1 flex justify-between font-sans text-[10px] font-semibold text-slate-400"
                 dir={isRtl ? "rtl" : "ltr"}
               >
                 <span>14 {t.yearsUnit}</span>
@@ -788,7 +789,7 @@ export default function FitnessCalculator({ lang = "ar" }) {
 
             {/* سطح فعالیت روزانه */}
             <div>
-              <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+              <span className="mb-2 block text-xs font-bold text-slate-200">
                 {t.activitySection}
               </span>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -802,20 +803,18 @@ export default function FitnessCalculator({ lang = "ar" }) {
                     }}
                     className={`flex cursor-pointer flex-col items-center rounded-2xl border p-3 text-center transition-all ${
                       activityIdx === idx
-                        ? "border-athar-forest bg-athar-forest/10 shadow-2xs"
-                        : "border-athar-border bg-athar-cream/40 hover:border-athar-forest/20"
+                        ? "border-athar-lime/60 bg-athar-lime/15 ring-1 ring-athar-lime/50 shadow-[0_0_15px_rgba(167,217,87,0.15)]"
+                        : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
                     }`}
                   >
                     <span
                       className={`text-xs font-black ${
-                        activityIdx === idx
-                          ? "text-athar-forest"
-                          : "text-athar-forest-deep"
+                        activityIdx === idx ? "text-athar-lime" : "text-white"
                       }`}
                     >
                       {lvl.label}
                     </span>
-                    <span className="mt-1 text-[10px] leading-tight text-athar-muted">
+                    <span className="mt-1 text-[10px] leading-tight text-slate-400">
                       {lvl.desc}
                     </span>
                   </button>
@@ -825,10 +824,10 @@ export default function FitnessCalculator({ lang = "ar" }) {
 
             {/* هدف ورزشی */}
             <div>
-              <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+              <span className="mb-2 block text-xs font-bold text-slate-200">
                 {t.goalSection}
               </span>
-              <div className="grid grid-cols-3 gap-2 rounded-2xl border border-athar-border bg-athar-cream/50 p-1.5">
+              <div className="grid grid-cols-3 gap-2 rounded-2xl border border-white/10 bg-black/40 p-1.5">
                 <button
                   type="button"
                   onClick={() => {
@@ -837,11 +836,11 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   }}
                   className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-black transition-all ${
                     goal === "cut"
-                      ? "bg-athar-forest text-white shadow-athar-soft"
-                      : "text-athar-muted hover:text-athar-forest"
+                      ? "bg-athar-lime text-athar-forest-deep shadow-[0_0_18px_rgba(167,217,87,0.35)]"
+                      : "text-slate-300 hover:text-white"
                   }`}
                 >
-                  <Flame className="h-3.5 w-3.5 text-athar-lime" />
+                  <Flame className="h-3.5 w-3.5 shrink-0" />
                   <span className="truncate">{t.goals.cut}</span>
                 </button>
                 <button
@@ -852,11 +851,11 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   }}
                   className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-black transition-all ${
                     goal === "maintain"
-                      ? "bg-athar-forest text-white shadow-athar-soft"
-                      : "text-athar-muted hover:text-athar-forest"
+                      ? "bg-athar-lime text-athar-forest-deep shadow-[0_0_18px_rgba(167,217,87,0.35)]"
+                      : "text-slate-300 hover:text-white"
                   }`}
                 >
-                  <Scale className="h-3.5 w-3.5 text-athar-lime" />
+                  <Scale className="h-3.5 w-3.5 shrink-0" />
                   <span className="truncate">{t.goals.maintain}</span>
                 </button>
                 <button
@@ -867,11 +866,11 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   }}
                   className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-black transition-all ${
                     goal === "bulk"
-                      ? "bg-athar-forest text-white shadow-athar-soft"
-                      : "text-athar-muted hover:text-athar-forest"
+                      ? "bg-athar-lime text-athar-forest-deep shadow-[0_0_18px_rgba(167,217,87,0.35)]"
+                      : "text-slate-300 hover:text-white"
                   }`}
                 >
-                  <Zap className="h-3.5 w-3.5 text-athar-lime" />
+                  <Zap className="h-3.5 w-3.5 shrink-0" />
                   <span className="truncate">{t.goals.bulk}</span>
                 </button>
               </div>
@@ -879,7 +878,7 @@ export default function FitnessCalculator({ lang = "ar" }) {
 
             {/* رویکرد تغذیه‌ای */}
             <div>
-              <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+              <span className="mb-2 block text-xs font-bold text-slate-200">
                 {t.nutritionSection}
               </span>
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -895,20 +894,18 @@ export default function FitnessCalculator({ lang = "ar" }) {
                       }}
                       className={`flex cursor-pointer flex-col rounded-2xl border p-3.5 text-start transition-all ${
                         isSelected
-                          ? "border-athar-forest bg-athar-forest/10 shadow-2xs"
-                          : "border-athar-border bg-athar-cream/40 hover:border-athar-forest/20"
+                          ? "border-athar-lime/60 bg-athar-lime/15 ring-1 ring-athar-lime/50 shadow-[0_0_15px_rgba(167,217,87,0.15)]"
+                          : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
                       }`}
                     >
                       <span
                         className={`text-xs font-black ${
-                          isSelected
-                            ? "text-athar-forest"
-                            : "text-athar-forest-deep"
+                          isSelected ? "text-athar-lime" : "text-white"
                         }`}
                       >
                         {opt.label}
                       </span>
-                      <span className="mt-1 text-[10px] leading-relaxed text-athar-muted">
+                      <span className="mt-1 text-[10px] leading-relaxed text-slate-400">
                         {opt.desc}
                       </span>
                     </button>
@@ -919,7 +916,7 @@ export default function FitnessCalculator({ lang = "ar" }) {
 
             {/* محیط و وسایل تمرین */}
             <div>
-              <span className="mb-2 block text-xs font-bold text-athar-forest-deep">
+              <span className="mb-2 block text-xs font-bold text-slate-200">
                 {t.gearSection}
               </span>
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -935,20 +932,18 @@ export default function FitnessCalculator({ lang = "ar" }) {
                       }}
                       className={`flex cursor-pointer flex-col rounded-2xl border p-3.5 text-start transition-all ${
                         isSelected
-                          ? "border-athar-forest bg-athar-forest/10 shadow-2xs"
-                          : "border-athar-border bg-athar-cream/40 hover:border-athar-forest/20"
+                          ? "border-athar-lime/60 bg-athar-lime/15 ring-1 ring-athar-lime/50 shadow-[0_0_15px_rgba(167,217,87,0.15)]"
+                          : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
                       }`}
                     >
                       <span
                         className={`text-xs font-black ${
-                          isSelected
-                            ? "text-athar-forest"
-                            : "text-athar-forest-deep"
+                          isSelected ? "text-athar-lime" : "text-white"
                         }`}
                       >
                         {opt.label}
                       </span>
-                      <span className="mt-1 text-[10px] leading-relaxed text-athar-muted">
+                      <span className="mt-1 text-[10px] leading-relaxed text-slate-400">
                         {opt.desc}
                       </span>
                     </button>
@@ -959,25 +954,25 @@ export default function FitnessCalculator({ lang = "ar" }) {
           </div>
 
           {/* دکمه اصلی تحلیل */}
-          <div className="mt-8 border-t border-athar-border/80 pt-6">
+          <div className="mt-8 border-t border-white/10 pt-6">
             <button
               type="button"
               onClick={handleCalculateClick}
               disabled={isCalculating}
-              className="relative flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-athar-forest py-4 text-center text-sm font-black text-white shadow-athar-float transition-all hover:bg-athar-forest-deep active:scale-[0.98] disabled:opacity-75"
+              className="relative flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-athar-lime hover:bg-athar-lime-hover py-4 text-center text-sm font-black text-athar-forest-deep shadow-[0_0_28px_rgba(167,217,87,0.4)] transition-all active:scale-[0.98] disabled:opacity-75"
             >
               {isCalculating ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-athar-forest-deep border-t-transparent" />
                   <span>{t.calculatingText}</span>
                 </>
               ) : (
                 <>
                   <span>{showResults ? t.recalculateBtn : t.calculateBtn}</span>
                   {isRtl ? (
-                    <ArrowLeft className="h-4 w-4 text-athar-lime" />
+                    <ArrowLeft className="h-4 w-4 stroke-[2.5]" />
                   ) : (
-                    <ArrowRight className="h-4 w-4 text-athar-lime" />
+                    <ArrowRight className="h-4 w-4 stroke-[2.5]" />
                   )}
                 </>
               )}
@@ -992,70 +987,70 @@ export default function FitnessCalculator({ lang = "ar" }) {
             >
               <div className="relative flex items-center justify-center py-2">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-athar-border" />
+                  <div className="w-full border-t border-white/10" />
                 </div>
-                <span className="relative rounded-full border border-athar-border bg-athar-cream px-4 py-1 text-xs font-black text-athar-forest-deep shadow-2xs">
+                <span className="relative rounded-full border border-athar-lime/40 bg-[#06100b] px-4 py-1 text-xs font-black text-athar-lime shadow-md">
                   {t.resultsTitle}
                 </span>
               </div>
 
               {/* کارت کالری و ماکروها */}
-              <div className="relative overflow-hidden rounded-3xl border border-athar-border bg-athar-cream/60 p-5 sm:p-6 shadow-athar-soft">
+              <div className="relative overflow-hidden rounded-3xl border border-athar-lime/30 bg-[#0b1812] p-5 sm:p-6 shadow-[0_0_25px_rgba(167,217,87,0.1)]">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                   <div className="text-center sm:text-start">
-                    <span className="text-xs font-bold text-athar-muted">
+                    <span className="text-xs font-bold text-slate-300">
                       {t.targetLabel}
                     </span>
                     <div className="mt-1 flex items-baseline justify-center gap-2 sm:justify-start">
-                      <span className="font-sans text-4xl sm:text-5xl font-black tracking-tight text-athar-forest-deep">
+                      <span className="font-sans text-4xl sm:text-5xl font-black tracking-tight text-white drop-shadow-md">
                         {activeTarget}
                       </span>
-                      <span className="font-sans text-xs font-black text-athar-forest">
+                      <span className="font-sans text-xs font-black text-athar-lime">
                         {t.kcalUnit}
                       </span>
                     </div>
 
                     <div className="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs">
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-athar-border bg-white px-2.5 py-1 text-athar-muted font-semibold whitespace-nowrap">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-slate-300 font-semibold whitespace-nowrap">
                         <span>{t.bmrLabel}</span>
-                        <strong className="text-athar-forest-deep font-sans font-bold">
+                        <strong className="text-white font-sans font-bold">
                           {bmr}
                         </strong>
                       </span>
 
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-athar-border bg-white px-2.5 py-1 text-athar-muted font-semibold whitespace-nowrap">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-slate-300 font-semibold whitespace-nowrap">
                         <span>{t.tdeeLabel}</span>
-                        <strong className="text-athar-forest-deep font-sans font-bold">
+                        <strong className="text-white font-sans font-bold">
                           {tdee}
                         </strong>
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex justify-center sm:justify-start gap-2 rounded-2xl border border-athar-border bg-white p-3 shadow-2xs self-center lg:self-auto">
+                  <div className="flex justify-center sm:justify-start gap-2 rounded-2xl border border-white/10 bg-black/40 p-3 shadow-sm self-center lg:self-auto">
                     <div className="flex flex-col items-center px-2.5 min-w-[58px]">
-                      <span className="text-[11px] font-bold text-athar-muted whitespace-nowrap">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap">
                         {t.macros.protein}
                       </span>
-                      <span className="font-sans text-xs font-black text-athar-forest-deep mt-1 whitespace-nowrap">
+                      <span className="font-sans text-xs font-black text-white mt-1 whitespace-nowrap">
                         {protein}g
                       </span>
                     </div>
-                    <div className="h-8 w-px bg-athar-border self-center" />
+                    <div className="h-8 w-px bg-white/10 self-center" />
                     <div className="flex flex-col items-center px-2.5 min-w-[58px]">
-                      <span className="text-[11px] font-bold text-athar-muted whitespace-nowrap">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap">
                         {t.macros.carbs}
                       </span>
-                      <span className="font-sans text-xs font-black text-athar-forest-deep mt-1 whitespace-nowrap">
+                      <span className="font-sans text-xs font-black text-white mt-1 whitespace-nowrap">
                         {carbs}g
                       </span>
                     </div>
-                    <div className="h-8 w-px bg-athar-border self-center" />
+                    <div className="h-8 w-px bg-white/10 self-center" />
                     <div className="flex flex-col items-center px-2.5 min-w-[58px]">
-                      <span className="text-[11px] font-bold text-athar-muted whitespace-nowrap">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap">
                         {t.macros.fats}
                       </span>
-                      <span className="font-sans text-xs font-black text-athar-forest-deep mt-1 whitespace-nowrap">
+                      <span className="font-sans text-xs font-black text-white mt-1 whitespace-nowrap">
                         {fats}g
                       </span>
                     </div>
@@ -1064,18 +1059,18 @@ export default function FitnessCalculator({ lang = "ar" }) {
               </div>
 
               {/* تایم‌لاین پیش‌بینی */}
-              <div className="rounded-3xl border border-athar-border bg-white p-5 sm:p-6 shadow-athar-soft">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-athar-border pb-4">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 shadow-xl">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
                   <div>
-                    <span className="inline-block text-[10px] font-bold tracking-wider text-athar-forest uppercase">
+                    <span className="inline-block text-[10px] font-bold tracking-wider text-athar-lime uppercase">
                       {t.forecastBadge}
                     </span>
-                    <h4 className="text-sm font-black text-athar-forest-deep">
+                    <h4 className="text-sm font-black text-white">
                       {t.forecastTitle}
                     </h4>
                   </div>
 
-                  <div className="flex gap-1.5 rounded-xl border border-athar-border bg-athar-cream/70 p-1">
+                  <div className="flex gap-1.5 rounded-xl border border-white/10 bg-black/40 p-1">
                     {[4, 8, 12].map((wk) => (
                       <button
                         key={wk}
@@ -1083,8 +1078,8 @@ export default function FitnessCalculator({ lang = "ar" }) {
                         onClick={() => setSelectedWeek(wk)}
                         className={`cursor-pointer rounded-lg px-3 py-1 font-sans text-xs font-black transition-all ${
                           selectedWeek === wk
-                            ? "bg-athar-forest text-white shadow-2xs"
-                            : "text-athar-muted hover:text-athar-forest-deep"
+                            ? "bg-athar-lime text-athar-forest-deep shadow-xs"
+                            : "text-slate-400 hover:text-white"
                         }`}
                       >
                         {wk === 4
@@ -1098,24 +1093,24 @@ export default function FitnessCalculator({ lang = "ar" }) {
                 </div>
 
                 <div className="mt-4 space-y-3.5">
-                  <div className="flex flex-col gap-2 rounded-2xl border border-athar-border bg-athar-cream/40 p-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-black/40 p-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <span className="text-[10px] font-bold text-athar-muted block">
+                      <span className="text-[10px] font-bold text-slate-400 block">
                         {t.targetWeightLabel}
                       </span>
                       <p
-                        className="font-sans text-xl font-black text-athar-forest-deep mt-0.5"
+                        className="font-sans text-xl font-black text-white mt-0.5"
                         dir="ltr"
                       >
                         {currentWeekMetrics.weightRange}
                       </p>
                     </div>
                     <div className="sm:text-end">
-                      <span className="text-[10px] font-bold text-athar-muted block">
+                      <span className="text-[10px] font-bold text-slate-400 block">
                         {t.deltaLabel}
                       </span>
                       <p
-                        className="font-sans text-sm font-black text-athar-forest mt-0.5"
+                        className="font-sans text-sm font-black text-athar-lime mt-0.5"
                         dir="ltr"
                       >
                         {currentWeekMetrics.delta}
@@ -1124,15 +1119,15 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   </div>
 
                   <div className="rounded-2xl border border-athar-lime/40 bg-athar-lime/15 p-3.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-athar-forest-deep">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-athar-lime">
                       {t.compositionLabel}
                     </span>
-                    <p className="mt-1 text-xs font-bold text-athar-forest-deep leading-relaxed">
+                    <p className="mt-1 text-xs font-bold text-white leading-relaxed">
                       {currentWeekMetrics.composition}
                     </p>
                   </div>
 
-                  <p className="text-[10.5px] leading-relaxed text-athar-muted">
+                  <p className="text-[10.5px] leading-relaxed text-slate-400">
                     {t.disclaimer}
                   </p>
                 </div>
@@ -1145,8 +1140,8 @@ export default function FitnessCalculator({ lang = "ar" }) {
                   onClick={handlePinAction}
                   className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-full py-4 text-center text-xs sm:text-sm font-black transition-all shadow-md active:scale-[0.98] ${
                     isPinned
-                      ? "bg-athar-lime text-athar-forest-deep shadow-lime-sm"
-                      : "bg-athar-forest hover:bg-athar-forest-deep text-white shadow-athar-soft"
+                      ? "bg-athar-lime text-athar-forest-deep shadow-[0_0_25px_rgba(167,217,87,0.45)]"
+                      : "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15"
                   }`}
                 >
                   {isPinned ? (
