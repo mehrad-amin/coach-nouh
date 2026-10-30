@@ -286,9 +286,11 @@ export default function ContactSection({ lang = "ar" }) {
         {/* شبکه ۳ کارته اطلاعات تماس */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 items-stretch">
           {/* کارت ۱: تماس مستقیم و ساعات کاری */}
+          {/* کارت ۱: تماس مستقیم و ساعات کاری */}
           <Contact3DCard>
             <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
+              {/* آیکون تلفن با پس‌زمینه سالید و بدون نفوذ نور دو رنگ */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
                 <Phone className="h-5 w-5" />
               </div>
 
@@ -299,13 +301,14 @@ export default function ContactSection({ lang = "ar" }) {
                 {ui.card1.desc}
               </p>
 
+              {/* دکمه شماره تلفن: رنگ سالید یکنواخت و ضد دورنگ شدگی در موبایل */}
               <div className="mt-5">
                 <a
                   href={`tel:${ui.phoneRaw}`}
                   dir="ltr"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-athar-lime/40 bg-athar-lime/10 px-4 py-2.5 font-sans text-sm sm:text-base font-black tracking-wider text-athar-lime shadow-xs transition-all hover:bg-athar-lime hover:text-athar-forest-deep cursor-pointer"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-athar-lime/40 bg-[#0c1f15] px-4 py-2.5 font-sans text-sm sm:text-base font-black tracking-wider text-athar-lime shadow-xs transition-all hover:bg-athar-lime hover:text-athar-forest-deep cursor-pointer"
                 >
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4 shrink-0" />
                   <span>{ui.phoneDisplay}</span>
                 </a>
               </div>
@@ -313,7 +316,7 @@ export default function ContactSection({ lang = "ar" }) {
 
             <div className="mt-8 border-t border-white/10 pt-4">
               <div className="flex items-center gap-1.5 text-[11px] font-bold text-athar-lime">
-                <Clock className="h-3.5 w-3.5" />
+                <Clock className="h-3.5 w-3.5 shrink-0" />
                 <span>{ui.card1.hoursLabel}</span>
               </div>
               <p className="mt-1 text-xs font-bold text-white">

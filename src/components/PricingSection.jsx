@@ -423,31 +423,40 @@ export default function PricingSection({ lang = "ar" }) {
           ))}
         </div>
 
-        {/* باکس شرایط شفافیت برگرفته از یادداشت مربی */}
-        <div className="mt-12 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-7 shadow-2xl">
-          <div className="flex flex-col sm:flex-row items-start gap-4 text-start">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
+        {/* باکس شرایط شفافیت برگرفته از یادداشت مربی نوح */}
+        <div className="mt-12 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-7 shadow-2xl antialiased">
+          {/* ردیف هدر: قرارگیری آیکون با رنگ سالید در کنار تیتر (تراز دقیق در موبایل و دسکتاپ) */}
+          <div className="flex items-center gap-3 sm:gap-3.5 mb-4 text-start">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
               <Info className="h-5 w-5" />
             </div>
 
-            <div className="space-y-2 flex-1">
-              <h4 className="text-sm font-black text-white">
-                {ui.transparencyNote.title}
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1 text-xs text-slate-300 font-medium">
-                <div className="flex items-start gap-2 bg-black/40 p-3 rounded-xl border border-white/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
-                  <span>{ui.transparencyNote.gymRule}</span>
-                </div>
-                <div className="flex items-start gap-2 bg-black/40 p-3 rounded-xl border border-white/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
-                  <span>{ui.transparencyNote.distanceRule}</span>
-                </div>
-                <div className="flex items-start gap-2 bg-black/40 p-3 rounded-xl border border-white/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
-                  <span>{ui.transparencyNote.goalRule}</span>
-                </div>
-              </div>
+            <h4 className="text-sm sm:text-base font-black text-white">
+              {ui.transparencyNote.title}
+            </h4>
+          </div>
+
+          {/* شبکه کارت‌های سه‌گانه با حاشیه‌ها و پس‌زمینه مات و یکدست */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 pt-1 text-xs text-slate-300 font-medium text-start">
+            <div className="flex items-start gap-2.5 bg-[#06100b]/80 hover:bg-[#06100b] p-3.5 rounded-2xl border border-white/10 transition-colors">
+              <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
+              <span className="leading-relaxed">
+                {ui.transparencyNote.gymRule}
+              </span>
+            </div>
+
+            <div className="flex items-start gap-2.5 bg-[#06100b]/80 hover:bg-[#06100b] p-3.5 rounded-2xl border border-white/10 transition-colors">
+              <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
+              <span className="leading-relaxed">
+                {ui.transparencyNote.distanceRule}
+              </span>
+            </div>
+
+            <div className="flex items-start gap-2.5 bg-[#06100b]/80 hover:bg-[#06100b] p-3.5 rounded-2xl border border-white/10 transition-colors">
+              <span className="w-1.5 h-1.5 rounded-full bg-athar-lime mt-1.5 shrink-0" />
+              <span className="leading-relaxed">
+                {ui.transparencyNote.goalRule}
+              </span>
             </div>
           </div>
         </div>

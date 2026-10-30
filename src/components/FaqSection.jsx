@@ -8,7 +8,6 @@ import {
   ArrowRight,
   MessageCircle,
   HelpCircle,
-  Sparkles,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -136,13 +135,8 @@ export default function FaqSection({
     >
       {/* هاله‌های نوری استودیویی در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* هاله بالایی */}
         <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
-
-        {/* هاله میانی سمت راست */}
         <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
-
-        {/* هاله پایینی */}
         <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
@@ -150,7 +144,7 @@ export default function FaqSection({
         {/* هدر بخش سؤالات متداول */}
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
-            <HelpCircle className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <HelpCircle className="h-3.5 w-3.5 text-athar-lime" />
             <span className="text-xs font-bold text-athar-cream tracking-wide">
               {ui.sectionBadge}
             </span>
@@ -242,17 +236,18 @@ export default function FaqSection({
           })}
         </div>
 
-        {/* کارت ارتباط مستقیم واتس‌اپ با کابتن نوح */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-6 text-center sm:text-start shadow-xl sm:flex-row antialiased">
-          <div className="flex items-center gap-3.5">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
+        {/* کارت ارتباط مستقیم واتس‌اپ با کابتن نوح (تراز دقیق، رنگ سالید مات و دکمه متقارن) */}
+        <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-6 shadow-xl antialiased">
+          <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 text-start">
+            {/* آیکون با پس‌زمینه سالید ضد دورنگ‌شدگی و تراز با تیتر در موبایل */}
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs mt-0.5 sm:mt-0">
               <MessageCircle className="h-5 w-5" />
             </div>
-            <div className="leading-tight text-start">
+            <div className="leading-tight">
               <p className="text-xs sm:text-sm font-black text-white">
                 {ui.askMoreTitle}
               </p>
-              <p className="mt-1 text-[11px] sm:text-xs text-slate-300 font-medium">
+              <p className="mt-1.5 text-[11px] sm:text-xs text-slate-300 font-medium leading-relaxed">
                 {ui.askMoreDesc}
               </p>
             </div>
@@ -262,7 +257,7 @@ export default function FaqSection({
             href={whatsappDirectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-athar-lime hover:bg-athar-lime-hover px-5 py-3 text-xs font-black text-athar-forest-deep shadow-[0_0_20px_rgba(167,217,87,0.35)] transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
+            className="inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-2 rounded-full bg-athar-lime hover:bg-athar-lime-hover px-5 py-3 text-xs font-black text-athar-forest-deep shadow-[0_0_20px_rgba(167,217,87,0.35)] transition-all active:scale-95 cursor-pointer whitespace-nowrap group"
           >
             <span>{ui.whatsappBtn}</span>
             {isRtl ? (
