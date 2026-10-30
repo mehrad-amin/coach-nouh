@@ -23,17 +23,20 @@ export default function Home() {
   return (
     <div
       dir={lang === "ar" ? "rtl" : "ltr"}
-      className="min-h-screen bg-athar-cream text-athar-forest transition-colors"
+      /* یکدست‌سازی بستر کلی پروژه با پایه استودیویی تیره و حذف هرگونه شکست رنگ در لبه‌ها */
+      className="min-h-screen bg-[#06100b] text-slate-100 selection:bg-athar-lime selection:text-athar-forest-deep transition-colors antialiased overflow-x-hidden"
     >
       <Navbar lang={lang} onToggleLang={toggleLanguage} />
-      <HeroSection lang={lang} />
-      <MethodologySection lang={lang} />
-      <TestimonialsSection lang={lang} />
-      <FitnessCalculator lang={lang} />
-      <PricingSection lang={lang} />
-      <FaqSection lang={lang} />
-      <ContactSection lang={lang} />
-      <BookingForm lang={lang} />
+      <main>
+        <HeroSection lang={lang} />
+        <MethodologySection lang={lang} />
+        <TestimonialsSection lang={lang} />
+        <FitnessCalculator lang={lang} />
+        <PricingSection lang={lang} />
+        <FaqSection lang={lang} />
+        <ContactSection lang={lang} />
+        <BookingForm lang={lang} />
+      </main>
       <UnifiedFloatingDock lang={lang} />
     </div>
   );

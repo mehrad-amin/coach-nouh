@@ -59,7 +59,7 @@ const HERO_CONTENT = {
         title: "مرونة في البرنامج",
         desc: "حصص محددة باليوم والوقت",
         icon: Calendar,
-        accent: "text-athar-cream",
+        accent: "text-athar-lime", // تغییر از text-athar-cream به text-athar-lime
       },
       {
         title: "عدة بسيطة وفعالة",
@@ -99,7 +99,7 @@ const HERO_CONTENT = {
         title: "Flexible Schedule",
         desc: "Custom day & time sessions",
         icon: Calendar,
-        accent: "text-athar-cream",
+        accent: "text-athar-lime", // تغییر از text-athar-cream به text-athar-lime
       },
       {
         title: "Minimal Gear",
@@ -257,7 +257,16 @@ export default function HeroSection({ lang = "ar" }) {
           poster="/images/coach-hero-poster.jpg"
           className="w-full h-full object-cover object-[50%_12%] sm:object-[50%_15%] lg:object-[62%_20%] opacity-100"
         >
-          <source src="/videos/coach-hero.mp4" type="video/mp4" />
+          <source
+            media="(max-width: 768px)"
+            src="/videos/coach-hero-mobile.mp4"
+            type="video/mp4"
+          />
+          <source
+            media="(min-width: 769px)"
+            src="/videos/coach-hero.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
 

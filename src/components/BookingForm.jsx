@@ -18,6 +18,7 @@ import {
   AlertCircle,
   Clock,
   Compass,
+  Send,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -628,7 +629,7 @@ export default function BookingForm({ lang = "ar" }) {
         {/* هدر بخش فرم */}
         <div className="mb-10 text-center md:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
-            <Sparkles className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <Send className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
             <span className="text-xs font-bold text-athar-cream tracking-wide">
               {ui.sectionBadge}
             </span>

@@ -43,11 +43,42 @@ export default function RootLayout({ children }) {
       dir="rtl"
       className={`${cairo.variable} ${jakarta.variable}`}
     >
-      <body className="min-h-screen bg-athar-cream text-athar-forest antialiased selection:bg-athar-lime selection:text-athar-forest-deep font-arabic">
-        {/* گرادیان نوری پس‌زمینه برای ایجاد عمق مدرن ورزشی */}
+      <head>
+        {/* پوستر فریم اول با بالاترین اولویت */}
+        <link
+          rel="preload"
+          href="/images/coach-hero-poster.jpg"
+          as="image"
+          fetchPriority="high"
+        />
+
+        {/* بافر آنی فایل مخصوص موبایل در صفحه‌های زیر ۷۶۸ پیکسل */}
+        <link
+          rel="preload"
+          href="/videos/coach-hero-mobile.mp4"
+          as="video"
+          type="video/mp4"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+
+        {/* بافر فایل دسکتاپ در مانیتورها */}
+        <link
+          rel="preload"
+          href="/videos/coach-hero.mp4"
+          as="video"
+          type="video/mp4"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </head>
+
+      <body className="min-h-screen bg-[#06100b] text-slate-100 antialiased selection:bg-athar-lime selection:text-athar-forest-deep font-arabic overflow-x-hidden">
+        {/* گرادیان نوری استودیویی عمیق هماهنگ با تم دارک‌لاکچری */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-          <div className="absolute -top-48 right-1/4 w-[600px] h-[600px] bg-athar-forest/20 rounded-full blur-[140px]" />
-          <div className="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-athar-lime/5 rounded-full blur-[160px]" />
+          <div className="absolute -top-48 right-1/4 w-[600px] h-[600px] bg-athar-lime/5 rounded-full blur-[160px]" />
+          <div className="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[180px]" />
+          <div className="absolute -bottom-48 right-1/3 w-[550px] h-[550px] bg-[#1e6347]/10 rounded-full blur-[180px]" />
         </div>
 
         {/* محفظه اصلی صفحات */}

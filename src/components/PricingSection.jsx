@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Sparkles, Check, Info } from "lucide-react";
+import { Sparkles, Check, Info, Layers } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
 /* محتوای رسمی بسته‌ها با تعداد کاملاً برابر ۶ ویژگی جهت تراز هندسی کامل      */
@@ -222,7 +222,7 @@ function PricingCard({ plan, ui, isSelected, onSelect }) {
           <div>
             {plan.isPopular ? (
               <span className="inline-flex items-center gap-1.5 rounded-full bg-athar-lime px-3 py-1 text-xs font-black text-athar-forest-deep shadow-[0_0_12px_rgba(167,217,87,0.35)]">
-                <Sparkles className="w-3.5 h-3.5 fill-current" />
+                <Layers className="w-3.5 h-3.5 fill-current" />
                 <span>{ui.popularBadge}</span>
               </span>
             ) : (
@@ -395,7 +395,7 @@ export default function PricingSection({ lang = "ar" }) {
         {/* هدر بخش قیمت‌گذاری */}
         <div className="mb-12 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
-            <Sparkles className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
+            <Layers className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
             <span className="text-xs font-bold text-athar-cream tracking-wide">
               {ui.sectionBadge}
             </span>
