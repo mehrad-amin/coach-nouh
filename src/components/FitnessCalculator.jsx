@@ -138,7 +138,7 @@ const CALCULATOR_DATA = {
     ctaPrefix: "اعتماد خطة الـ",
     ctaSuffix: "سعرة وحفظها في التقييم",
     ctaPinnedPrefix: "تم حفظ خطة الـ",
-    ctaPinnedSuffix: "سعرة لملف تدريبك مع كوتش محمد ✓",
+    ctaPinnedSuffix: "سعرة لملف تدريبك مع كوتش محمد",
   },
 
   en: {
@@ -252,7 +252,7 @@ const CALCULATOR_DATA = {
     ctaPrefix: "Lock In",
     ctaSuffix: "KCAL Protocol & Save",
     ctaPinnedPrefix: "Saved",
-    ctaPinnedSuffix: "KCAL Protocol to Coach Mohammed Profile ✓",
+    ctaPinnedSuffix: "KCAL Protocol to Coach Mohammed Profile",
   },
 };
 
