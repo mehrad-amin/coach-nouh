@@ -36,9 +36,9 @@ const ARAB_COUNTRIES = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/* بسته‌های سه‌گانه رسمی کابتن نوح                                              */
+/* بسته‌های سه‌گانه رسمی کابتن محمد                                              */
 /* -------------------------------------------------------------------------- */
-const DEFAULT_NOUH_PLANS = {
+const DEFAULT_Mohammed_PLANS = {
   ar: [
     {
       id: "bronze_plan",
@@ -88,10 +88,10 @@ const DEFAULT_NOUH_PLANS = {
 /* -------------------------------------------------------------------------- */
 const BOOKING_UI_TEXT = {
   ar: {
-    sectionBadge: "الخطوة النهائية • كوتش نوح",
+    sectionBadge: "الخطوة النهائية • كوتش محمد",
     sectionTitle: "استمارة التسجيل وتأكيد الحجز المباشر",
     sectionSubtitle:
-      "تم ربط بياناتك الحيوية واحتياجك الأيضي تلقائياً بهذه الاستمارة ليتسلمها الكابتن نوح بن عيسى كاملة لبدء التنسيق معك.",
+      "تم ربط بياناتك الحيوية واحتياجك الأيضي تلقائياً بهذه الاستمارة ليتسلمها الكابتن محمد بن عيسى كاملة لبدء التنسيق معك.",
 
     badgesContainerTitle: "البيانات المسجلة تلقائياً من جولتك في الموقع:",
     badgeBiomechanicsTitle: "تقييم المرونة والحركة",
@@ -118,11 +118,11 @@ const BOOKING_UI_TEXT = {
 
     submitLoading: "جاري ربط الملف وإرسال البيانات...",
     submitPrefix: "تأكيد التسجيل في",
-    submitSuffix: "والتواصل مع كوتش نوح",
+    submitSuffix: "والتواصل مع كوتش محمد",
     defaultError: "حدث خطأ أثناء معالجة الطلب، يرجى المحاولة لاحقاً.",
     unexpectedError: "تعذر الاتصال بالخادم، يرجى المحاولة مجدداً.",
     calcRequiredError:
-      "يرجى إكمال حساب السعرات والنشاط في الحاسبة البدنية أعلاه أولاً ليتمكن الكابتن نوح من تقييم خطتك بدقة.",
+      "يرجى إكمال حساب السعرات والنشاط في الحاسبة البدنية أعلاه أولاً ليتمكن الكابتن محمد من تقييم خطتك بدقة.",
     goToCalcBtn: "الانتقال للحاسبة الآن",
 
     locations: [
@@ -154,11 +154,11 @@ const BOOKING_UI_TEXT = {
     success: {
       title: "تم استلام طلبك وملفك البدني بنجاح!",
       confirmed: "الباقة المختارة:",
-      desc: "تم تسجيل كافة بياناتك الحيوية وأولويات تدريبك. يمكنك الآن فتح محادثة واتساب المباشرة مع الكابتن نوح لتأكيد الموعد الأول.",
-      whatsappBtn: "فتح محادثة واتساب المباشرة مع كوتش نوح",
+      desc: "تم تسجيل كافة بياناتك الحيوية وأولويات تدريبك. يمكنك الآن فتح محادثة واتساب المباشرة مع الكابتن محمد لتأكيد الموعد الأول.",
+      whatsappBtn: "فتح محادثة واتساب المباشرة مع كوتش محمد",
       newFormBtn: "تسجيل استمارة جديدة",
       fileIdLabel: "رقم الملف الرياضي:",
-      waHello: "مرحباً كابتن نوح بن عيسى 👋",
+      waHello: "مرحباً كابتن محمد بن عيسى 👋",
       waIm: "أنا",
       waRegistered: "أتممت التسجيل عبر موقعك الرسمي في:",
       waBiometricsHeader: "📊 ملخص تقييمي البدني:",
@@ -171,10 +171,10 @@ const BOOKING_UI_TEXT = {
   },
 
   en: {
-    sectionBadge: "FINAL STEP • COACH NOUH",
+    sectionBadge: "FINAL STEP • Coach Mohammed",
     sectionTitle: "Application & Session Onboarding",
     sectionSubtitle:
-      "All your dynamic biometric inputs and kinetic priorities are synced to this form directly for Coach Nouh Bin Issa.",
+      "All your dynamic biometric inputs and kinetic priorities are synced to this form directly for Coach Mohammed Bin Issa.",
 
     badgesContainerTitle: "Auto-Captured Metrics & Choices from Your Session:",
     badgeBiomechanicsTitle: "Mobility & Kinetic Screening",
@@ -202,11 +202,11 @@ const BOOKING_UI_TEXT = {
 
     submitLoading: "Syncing file and delivering biometrics...",
     submitPrefix: "Confirm Registration in",
-    submitSuffix: "and Connect with Coach Nouh",
+    submitSuffix: "and Connect with Coach Mohammed",
     defaultError: "Error submitting assessment. Please try again.",
     unexpectedError: "Unexpected server error. Please try again.",
     calcRequiredError:
-      "Please complete the Biometric Calculator above first so Coach Nouh can evaluate your profile accurately.",
+      "Please complete the Biometric Calculator above first so Coach Mohammed can evaluate your profile accurately.",
     goToCalcBtn: "Go to Calculator Now",
 
     locations: [
@@ -238,11 +238,11 @@ const BOOKING_UI_TEXT = {
     success: {
       title: "Profile Successfully Received!",
       confirmed: "Selected Plan:",
-      desc: "Your complete kinetic screening profile and target metrics have been delivered. You can now chat directly with Coach Nouh via WhatsApp to confirm your first session.",
-      whatsappBtn: "Open WhatsApp Chat with Coach Nouh",
+      desc: "Your complete kinetic screening profile and target metrics have been delivered. You can now chat directly with Coach Mohammed via WhatsApp to confirm your first session.",
+      whatsappBtn: "Open WhatsApp Chat with Coach Mohammed",
       newFormBtn: "Submit Another Request",
       fileIdLabel: "Client File ID:",
-      waHello: "Hello Coach Nouh Bin Issa 👋",
+      waHello: "Hello Coach Mohammed Bin Issa 👋",
       waIm: "I am",
       waRegistered: "I completed my registration on your platform for:",
       waBiometricsHeader: "📊 My Physical Profile Summary:",
@@ -258,7 +258,8 @@ const BOOKING_UI_TEXT = {
 export default function BookingForm({ lang = "ar" }) {
   const isRtl = lang === "ar";
   const ui = BOOKING_UI_TEXT[lang] || BOOKING_UI_TEXT.ar;
-  const availablePlans = DEFAULT_NOUH_PLANS[lang] || DEFAULT_NOUH_PLANS.ar;
+  const availablePlans =
+    DEFAULT_Mohammed_PLANS[lang] || DEFAULT_Mohammed_PLANS.ar;
 
   // ۱. پیش‌شماره عمان به عنوان پیش‌فرض
   const [countryCode, setCountryCode] = useState("+968");
@@ -455,7 +456,7 @@ export default function BookingForm({ lang = "ar" }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          coachName: "Coach Nouh",
+          coachName: "Coach Mohammed",
           name: formData.name,
           phone: fullPhoneNumber,
           location: currentLocationLabel,
@@ -476,7 +477,7 @@ export default function BookingForm({ lang = "ar" }) {
       const data = await res.json().catch(() => ({}));
 
       const generatedFileId =
-        data.fileId || `NOUH-${Math.floor(1000 + Math.random() * 9000)}`;
+        data.fileId || `Mohammed-${Math.floor(1000 + Math.random() * 9000)}`;
 
       setResultMeta({
         coachPhone: "96894486154",
@@ -490,7 +491,7 @@ export default function BookingForm({ lang = "ar" }) {
         isCalcMissing: false,
       });
     } catch (err) {
-      const fallbackFileId = `NOUH-${Math.floor(1000 + Math.random() * 9000)}`;
+      const fallbackFileId = `Mohammed-${Math.floor(1000 + Math.random() * 9000)}`;
       setResultMeta({
         coachPhone: "96894486154",
         fileId: fallbackFileId,
@@ -692,7 +693,7 @@ export default function BookingForm({ lang = "ar" }) {
                   </div>
                 )}
 
-                {/* ۲. بج ماشین‌حساب نوح */}
+                {/* ۲. بج ماشین‌حساب محمد */}
                 {calcData && (
                   <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-sm">
                     <div>

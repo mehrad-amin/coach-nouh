@@ -2,14 +2,14 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Sparkles, Check, Info, Layers } from "lucide-react";
+import { Check, Info, Layers } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
 /* محتوای رسمی بسته‌ها با تعداد کاملاً برابر ۶ ویژگی جهت تراز هندسی کامل      */
 /* -------------------------------------------------------------------------- */
 const PRICING_CONTENT = {
   ar: {
-    sectionBadge: "خطط الاستثمار البدني • كوتش نوح",
+    sectionBadge: "خطط الاستثمار البدني • كوتش محمد",
     sectionTitle: "باقات التدريب المباشر ونمط الحياة",
     sectionSubtitle:
       "حصص فردية محددة باليوم والوقت في سلطنة عُمان (مسقط والسويق)، تهدف لتمكينك من مهارة التدريب المستقل مدى الحياة.",
@@ -57,7 +57,7 @@ const PRICING_CONTENT = {
         subtitle: "التطوير البدني الشامل وبناء اللياقة الوظيفية",
         isPopular: true,
         features: [
-          "حصص فردية مباشرة ومكثفة مع كابتن نوح",
+          "حصص فردية مباشرة ومكثفة مع كابتن محمد",
           "برنامج تدريبي مرن يتكيف تماماً مع ظروفك ومواعيدك",
           "رفع كفاءة التنفس وتحرير المفاصل وحمايتها من الإصابات",
           "خطة تغذية متوازنة محسوبة العناصر لدعم النشاط اليومي",
@@ -86,7 +86,7 @@ const PRICING_CONTENT = {
   },
 
   en: {
-    sectionBadge: "COACHING PLANS • COACH NOUH",
+    sectionBadge: "COACHING PLANS • Coach Mohammed",
     sectionTitle: "1-on-1 In-Person Training & Lifestyle Tiers",
     sectionSubtitle:
       "Private sessions scheduled by day and time in Oman (Muscat & Al-Suwiq), engineered for lifelong training autonomy.",
@@ -135,7 +135,7 @@ const PRICING_CONTENT = {
         subtitle: "Comprehensive physical conditioning & adaptive lifestyle",
         isPopular: true,
         features: [
-          "Direct hands-on coaching sessions with Coach Nouh",
+          "Direct hands-on coaching sessions with Coach Mohammed",
           "Adaptive programming structured around your busy schedule",
           "Optimized breathing, joint decompression, and injury prevention",
           "Balanced nutrition protocol supporting daily vitality",
@@ -423,7 +423,7 @@ export default function PricingSection({ lang = "ar" }) {
           ))}
         </div>
 
-        {/* باکس شرایط شفافیت برگرفته از یادداشت مربی نوح */}
+        {/* باکس شرایط شفافیت برگرفته از یادداشت مربی محمد */}
         <div className="mt-12 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-7 shadow-2xl antialiased">
           {/* ردیف هدر: قرارگیری آیکون با رنگ سالید در کنار تیتر (تراز دقیق در موبایل و دسکتاپ) */}
           <div className="flex items-center gap-3 sm:gap-3.5 mb-4 text-start">

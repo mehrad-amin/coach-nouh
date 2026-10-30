@@ -16,12 +16,12 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "كوتش نوح | مدرب شخصي للّياقة والمرونة ونمط الحياة",
+  title: "كوتش محمد | مدرب شخصي للّياقة والمرونة ونمط الحياة",
   description:
-    "أسلوب تدريب وظيفي مرن يتلائم مع ظروفك. حصص شخصية مخصصة لتحقيق أعلى مستوى من اللياقة والمرونة واكتساب مهارة التدريب المستقل مع الكابتن نوح بن عيسى في سلطنة عُمان (مسقط والسويق).",
+    "أسلوب تدريب وظيفي مرن يتلائم مع ظروفك. حصص شخصية مخصصة لتحقيق أعلى مستوى من اللياقة والمرونة واكتساب مهارة التدريب المستقل مع الكابتن محمد بن عيسى في سلطنة عُمان (مسقط والسويق).",
   keywords: [
-    "كوتش نوح",
-    "نوح بن عيسى",
+    "كوتش محمد",
+    "محمد بن عيسى",
     "مدرب شخصي عمان",
     "مدرب شخصي مسقط",
     "مدرب شخصي السويق",
@@ -29,9 +29,9 @@ export const metadata = {
     "لياقة حركية واستقلالية بدنية",
   ],
   openGraph: {
-    title: "كوتش نوح | مدرب شخصي ونمط حياة صحي",
+    title: "كوتش محمد | مدرب شخصي ونمط حياة صحي",
     description:
-      "تدرّب بذكاء، حرر مفاصلك، واكتسب مهارة التدريب المستقل مدى الحياة مع الكابتن نوح بن عيسى في سلطنة عُمان.",
+      "تدرّب بذكاء، حرر مفاصلك، واكتسب مهارة التدريب المستقل مدى الحياة مع الكابتن محمد بن عيسى في سلطنة عُمان.",
     locale: "ar_OM",
     type: "website",
   },
@@ -44,15 +44,23 @@ export default function RootLayout({ children }) {
       className={`${cairo.variable} ${jakarta.variable}`}
     >
       <head>
-        {/* پوستر فریم اول با بالاترین اولویت */}
+        {/* پیش‌بارگذاری پوسترها */}
         <link
           rel="preload"
-          href="/images/coach-hero-poster.jpg"
+          href="/images/coach-hero-poster-mobile.jpg"
           as="image"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/images/coach-hero-poster-desktop.jpg"
+          as="image"
+          media="(min-width: 769px)"
           fetchPriority="high"
         />
 
-        {/* بافر آنی فایل مخصوص موبایل در صفحه‌های زیر ۷۶۸ پیکسل */}
+        {/* بافر آنی ویدیوها */}
         <link
           rel="preload"
           href="/videos/coach-hero-mobile.mp4"
@@ -61,11 +69,9 @@ export default function RootLayout({ children }) {
           media="(max-width: 768px)"
           fetchPriority="high"
         />
-
-        {/* بافر فایل دسکتاپ در مانیتورها */}
         <link
           rel="preload"
-          href="/videos/coach-hero.mp4"
+          href="/videos/coach-hero-desktop.mp4"
           as="video"
           type="video/mp4"
           media="(min-width: 769px)"

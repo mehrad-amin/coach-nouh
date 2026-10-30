@@ -6,7 +6,7 @@ export async function POST(request) {
     const body = await request.json();
 
     // ایجاد یک شماره پرونده یکتا برای شاگرد
-    const fileId = `NOUH-${Math.floor(1000 + Math.random() * 9000)}`;
+    const fileId = `Mohammed-${Math.floor(1000 + Math.random() * 9000)}`;
     const payload = {
       ...body,
       fileId,

@@ -39,14 +39,14 @@ function MethodIcon({ type }) {
 
 const METHODOLOGY_DATA = {
   ar: {
-    badge: "فلسفة التدريب • كوتش نوح",
+    badge: "فلسفة التدريب • كوتش محمد",
     title: "منهجية تبني قدرتك الحركية، لا اعتمادك على المدرب",
     subtitle:
       "أسلوب تدريب مرن وذكي يتوافق تماماً مع جدولك اليومي. هدفنا أن تمتلك مهارة التدريب الواعي لتصل لنتيجتك وتواصل بنفسك بكل ثقة.",
 
     coachCard: {
       tag: "مدرب شخصي ونمط حياة صحي",
-      name: "الكابتن نوح",
+      name: "الكابتن محمد",
       location: "سلطنة عُمان",
       bioTitle: "عن أسلوب الكابتن:",
       bioText:
@@ -94,14 +94,14 @@ const METHODOLOGY_DATA = {
   },
 
   en: {
-    badge: "COACHING METHODOLOGY • COACH NOUH",
+    badge: "COACHING METHODOLOGY • Coach Mohammed",
     title: "A System Built to Empower Your Independence",
     subtitle:
       "A flexible, intelligent training method tailored around your daily routine. We equip you with conscious training skills to achieve lasting fitness on your own.",
 
     coachCard: {
       tag: "Personal Trainer & Lifestyle",
-      name: "Coach Nouh",
+      name: "Coach Mohammed",
       location: "Sultanate of Oman",
       bioTitle: "Coaching Philosophy:",
       bioText:
@@ -151,7 +151,7 @@ const METHODOLOGY_DATA = {
 
 export default function MethodologySection({
   lang = "ar",
-  coachImage = "/coach-nouh.jpg",
+  coachImage = "/coach.jpg",
 }) {
   const isRtl = lang === "ar";
   const t = METHODOLOGY_DATA[lang] || METHODOLOGY_DATA.ar;
@@ -218,7 +218,7 @@ export default function MethodologySection({
           </p>
         </div>
 
-        {/* کارت معرفی فلسفه و تصویر مربی نوح */}
+        {/* کارت معرفی فلسفه و تصویر مربی محمد */}
         <div className="mb-14 sm:mb-16 rounded-3xl border border-white/10 bg-[#08130e] p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden">
           <div className="pointer-events-none absolute -top-20 -end-20 w-64 h-64 rounded-full bg-athar-lime/10 blur-[80px]" />
 

@@ -20,7 +20,7 @@ function WhatsAppIcon({ className = "w-4 h-4" }) {
 
 const NAV_CONTENT = {
   ar: {
-    brandName: "كوتش نوح",
+    brandName: "كوتش محمد",
     brandSubtitle: "مدرب شخصي ونمط حياة",
     links: [
       { label: "الرئيسية", href: "#" },
@@ -34,7 +34,7 @@ const NAV_CONTENT = {
       "https://wa.me/96894486154?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
   },
   en: {
-    brandName: "COACH NOUH",
+    brandName: "Coach Mohammed",
     brandSubtitle: "Personal Trainer & Lifestyle",
     links: [
       { label: "Home", href: "#" },
@@ -45,7 +45,7 @@ const NAV_CONTENT = {
     whatsappCta: "WhatsApp Coach",
     langToggle: "العربية",
     whatsappUrl:
-      "https://wa.me/96894486154?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20personal%20coaching",
+      "https://wa.me/96894486154?text=Hello%20Coach%20Mohammed,%20I'd%20like%20to%20inquire%20about%20personal%20coaching",
   },
 };
 
@@ -64,7 +64,7 @@ export default function Navbar({ lang = "ar", onToggleLang }) {
         {/* ۱. لوگو و نشان برند */}
         <a href="#" className="group flex items-center gap-2.5 sm:gap-3">
           <div className="relative flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/[0.08] text-athar-lime font-black text-lg backdrop-blur-lg shadow-sm transition-transform duration-300 group-hover:scale-105">
-            <span className="font-sans">N</span>
+            <span className="font-sans">M</span>
             <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-athar-lime ring-2 ring-black/40 animate-pulse" />
           </div>
 

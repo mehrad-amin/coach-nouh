@@ -24,14 +24,14 @@ import {
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
-/* محتوای سلیس و بومی عربی سفید منطبق بر هویت مربی نوح                        */
+/* محتوای سلیس و بومی عربی سفید منطبق بر هویت مربی محمد                        */
 /* -------------------------------------------------------------------------- */
 const CALCULATOR_DATA = {
   ar: {
-    sectionBadge: "التقييم البدني الذاتي • كوتش نوح",
+    sectionBadge: "التقييم البدني الذاتي • كوتش محمد",
     sectionTitle: "احسب احتياجك اليومي واكتشف مسار تطورك",
     sectionSubtitle:
-      "أداة تحليل حركي وأيضي ذكية لتحديد سعراتك واحتياجك الفعلي وخارطة تحولك التقديرية مع الكابتن نوح خلال ١٢ أسبوعاً.",
+      "أداة تحليل حركي وأيضي ذكية لتحديد سعراتك واحتياجك الفعلي وخارطة تحولك التقديرية مع الكابتن محمد خلال ١٢ أسبوعاً.",
 
     badge: "المحرك الأيضي والبدني",
     resetBtn: "إعادة ضبط",
@@ -108,7 +108,7 @@ const CALCULATOR_DATA = {
       {
         id: "minimal",
         label: "أدوات بسيطة وتمارين وظيفية",
-        desc: "حبال، أوزان خفيفة ووزن الجسم (أسلوب كوتش نوح الأساسي)",
+        desc: "حبال، أوزان خفيفة ووزن الجسم (أسلوب كوتش محمد الأساسي)",
       },
       {
         id: "gym",
@@ -138,14 +138,14 @@ const CALCULATOR_DATA = {
     ctaPrefix: "اعتماد خطة الـ",
     ctaSuffix: "سعرة وحفظها في التقييم",
     ctaPinnedPrefix: "تم حفظ خطة الـ",
-    ctaPinnedSuffix: "سعرة لملف تدريبك مع كوتش نوح ✓",
+    ctaPinnedSuffix: "سعرة لملف تدريبك مع كوتش محمد ✓",
   },
 
   en: {
-    sectionBadge: "SELF ASSESSMENT • COACH NOUH",
+    sectionBadge: "SELF ASSESSMENT • Coach Mohammed",
     sectionTitle: "Calculate Your Needs & Discover Your Trajectory",
     sectionSubtitle:
-      "Smart metabolic and kinetic assessment engine to identify your optimal calories and 12-week transformation blueprint with Coach Nouh.",
+      "Smart metabolic and kinetic assessment engine to identify your optimal calories and 12-week transformation blueprint with Coach Mohammed.",
 
     badge: "METABOLIC & KINETIC ENGINE",
     resetBtn: "Reset",
@@ -222,7 +222,7 @@ const CALCULATOR_DATA = {
       {
         id: "minimal",
         label: "Minimal Functional Gear",
-        desc: "Ropes, calisthenics & light gear (Coach Nouh's core method)",
+        desc: "Ropes, calisthenics & light gear (Coach Mohammed's core method)",
       },
       {
         id: "gym",
@@ -252,7 +252,7 @@ const CALCULATOR_DATA = {
     ctaPrefix: "Lock In",
     ctaSuffix: "KCAL Protocol & Save",
     ctaPinnedPrefix: "Saved",
-    ctaPinnedSuffix: "KCAL Protocol to Coach Nouh Profile ✓",
+    ctaPinnedSuffix: "KCAL Protocol to Coach Mohammed Profile ✓",
   },
 };
 

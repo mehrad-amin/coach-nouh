@@ -44,7 +44,7 @@ const ATHAR_REVIEWS = {
       statNumber: "١٠٠٪",
       statLabel: "قدرة على التمرين الذاتي",
       quote:
-        "أهم ما كسبته مع كابتن نوح ليس مجرد لياقة عابرة، بل أنني بعد انتهاء البرنامج أصبحت قادراً على تصميم وتطبيق تماريني بنفسي أينما كنت دون الحاجة لتواجد مدرب.",
+        "أهم ما كسبته مع كابتن محمد ليس مجرد لياقة عابرة، بل أنني بعد انتهاء البرنامج أصبحت قادراً على تصميم وتطبيق تماريني بنفسي أينما كنت دون الحاجة لتواجد مدرب.",
       duration: "برنامج ٣ أشهر",
     },
     {
@@ -57,7 +57,7 @@ const ATHAR_REVIEWS = {
       statNumber: "+٨٥٪",
       statLabel: "تحرر في مدى الحركة اليومي",
       quote:
-        "ساعات الجلوس الطويلة كانت تسبب لي تيبساً مزمناً في الظهر. تركيز نوح على تحرير المفاصل وتمارين التنفس أعاد لجسدي الخفة والنشاط المستدام.",
+        "ساعات الجلوس الطويلة كانت تسبب لي تيبساً مزمناً في الظهر. تركيز محمد على تحرير المفاصل وتمارين التنفس أعاد لجسدي الخفة والنشاط المستدام.",
       duration: "برنامج شهرين",
     },
     {
@@ -70,7 +70,7 @@ const ATHAR_REVIEWS = {
       statNumber: "صفر",
       statLabel: "تعقيد في الأجهزة والماكينات",
       quote:
-        "كنت أعتقد أن النتيجة تتطلب أجهزة معقدة؛ أثبت لي كابتن نوح أن أدوات بسيطة مع فهم ميكانيكية الحركة الصحيحة كافية جداً لتحقيق أعلى مستوى لياقة.",
+        "كنت أعتقد أن النتيجة تتطلب أجهزة معقدة؛ أثبت لي كابتن محمد أن أدوات بسيطة مع فهم ميكانيكية الحركة الصحيحة كافية جداً لتحقيق أعلى مستوى لياقة.",
       duration: "برنامج ٣ أشهر",
     },
     {
@@ -83,7 +83,7 @@ const ATHAR_REVIEWS = {
       statNumber: "١٠٠٪",
       statLabel: "التزام واستمرارية مستمرة",
       quote:
-        "بسبب كثرة التنقل بين العمل والمنزل كان الالتزام أمراً مستحيلاً. أسلوب نوح يتكيف بسلاسة مع كل ظروفي، وجعل التدريب جزءاً ثابتاً من يومي.",
+        "بسبب كثرة التنقل بين العمل والمنزل كان الالتزام أمراً مستحيلاً. أسلوب محمد يتكيف بسلاسة مع كل ظروفي، وجعل التدريب جزءاً ثابتاً من يومي.",
       duration: "برنامج ٤ أشهر",
     },
   ],
@@ -98,7 +98,7 @@ const ATHAR_REVIEWS = {
       statNumber: "100%",
       statLabel: "Self-reliant workout capability",
       quote:
-        "The greatest takeaway from Coach Nouh was not just fitness, but the complete ability to design and execute my own workouts anywhere without needing a trainer post-program.",
+        "The greatest takeaway from Coach Mohammed was not just fitness, but the complete ability to design and execute my own workouts anywhere without needing a trainer post-program.",
       duration: "3-Month Program",
     },
     {
@@ -111,7 +111,7 @@ const ATHAR_REVIEWS = {
       statNumber: "+85%",
       statLabel: "Daily kinetic freedom",
       quote:
-        "Long desk hours gave me chronic lower back stiffness. Nouh's emphasis on joint mobility and diaphragmatic breathing restored lasting lightness and daily energy.",
+        "Long desk hours gave me chronic lower back stiffness. Mohammed's emphasis on joint mobility and diaphragmatic breathing restored lasting lightness and daily energy.",
       duration: "2-Month Program",
     },
     {
@@ -124,7 +124,7 @@ const ATHAR_REVIEWS = {
       statNumber: "Zero",
       statLabel: "Reliance on complex machines",
       quote:
-        "I thought real conditioning required complex gym machinery. Coach Nouh proved that lean tools paired with biomechanical precision deliver superior functional strength.",
+        "I thought real conditioning required complex gym machinery. Coach Mohammed proved that lean tools paired with biomechanical precision deliver superior functional strength.",
       duration: "3-Month Program",
     },
     {
@@ -137,7 +137,7 @@ const ATHAR_REVIEWS = {
       statNumber: "100%",
       statLabel: "Consistency without burnout",
       quote:
-        "With frequent commuting, consistency was previously impossible. Nouh's approach effortlessly adapts around my schedule, turning fitness into a seamless lifestyle.",
+        "With frequent commuting, consistency was previously impossible. Mohammed's approach effortlessly adapts around my schedule, turning fitness into a seamless lifestyle.",
       duration: "4-Month Program",
     },
   ],
@@ -145,16 +145,16 @@ const ATHAR_REVIEWS = {
 
 const SECTION_HEADER = {
   ar: {
-    badge: "تجارب واقعية • كوتش نوح",
+    badge: "تجارب واقعية • كوتش محمد",
     title: "نتائج موثوقة في استعادة الحركة والاستقلالية",
     subtitle:
-      "تجارب متدربين خاضوا مسار التطوير الحركي والمرونة مع الكابتن نوح بن عيسى في مسقط والسويق.",
+      "تجارب متدربين خاضوا مسار التطوير الحركي والمرونة مع الكابتن محمد بن عيسى في مسقط والسويق.",
   },
   en: {
-    badge: "REAL JOURNEYS • COACH NOUH",
+    badge: "REAL JOURNEYS • Coach Mohammed",
     title: "Proven Outcomes in Mobility & Independence",
     subtitle:
-      "Authentic experiences of trainees who mastered movement mechanics with Coach Nouh Bin Issa in Muscat & Al-Suwiq.",
+      "Authentic experiences of trainees who mastered movement mechanics with Coach Mohammed Bin Issa in Muscat & Al-Suwiq.",
   },
 };
 

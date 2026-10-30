@@ -11,21 +11,21 @@ import {
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
-/* محتوای رسمی سؤالات متداول بر اساس دست‌نوشته و شرایط مربی نوح در عُمان     */
+/* محتوای رسمی سؤالات متداول بر اساس دست‌نوشته و شرایط مربی محمد در عُمان     */
 /* -------------------------------------------------------------------------- */
 const FAQ_DATA = {
   ar: {
-    sectionBadge: "إجابات واضحة • كوتش نوح",
+    sectionBadge: "إجابات واضحة • كوتش محمد",
     sectionTitle: "الأسئلة الشائعة حول أسلوب التدريب",
     sectionSubtitle:
-      "إجابات مباشرة من الكابتن نوح بن عيسى حول منهجية المرونة، مواعيد الحصص، وتحقيق استقلالية التمرين في سلطنة عُمان.",
+      "إجابات مباشرة من الكابتن محمد بن عيسى حول منهجية المرونة، مواعيد الحصص، وتحقيق استقلالية التمرين في سلطنة عُمان.",
 
     askMoreTitle: "لديك استفسار خاص لم تجد إجابته هنا؟",
     askMoreDesc:
-      "تواصل مباشرة مع الكابتن نوح عبر واتساب لمناقشة أهدافك وجدول مواعيدك المتاحة.",
-    whatsappBtn: "تحدث مع كوتش نوح عبر واتساب",
+      "تواصل مباشرة مع الكابتن محمد عبر واتساب لمناقشة أهدافك وجدول مواعيدك المتاحة.",
+    whatsappBtn: "تحدث مع كوتش محمد عبر واتساب",
     whatsappMessage:
-      "مرحباً كابتن نوح، أود الاستفسار عن تفاصيل جلسات التدريب الشخصي والمواعيد المتاحة.",
+      "مرحباً كابتن محمد، أود الاستفسار عن تفاصيل جلسات التدريب الشخصي والمواعيد المتاحة.",
 
     faqs: [
       {
@@ -62,17 +62,17 @@ const FAQ_DATA = {
   },
 
   en: {
-    sectionBadge: "CLEAR ANSWERS • COACH NOUH",
+    sectionBadge: "CLEAR ANSWERS • Coach Mohammed",
     sectionTitle: "Frequently Asked Questions",
     sectionSubtitle:
-      "Direct insights from Coach Nouh Bin Issa regarding mobility methodology, scheduling, and training autonomy in Oman.",
+      "Direct insights from Coach Mohammed Bin Issa regarding mobility methodology, scheduling, and training autonomy in Oman.",
 
     askMoreTitle: "Have a specific question not covered here?",
     askMoreDesc:
-      "Connect directly with Coach Nouh via WhatsApp to discuss your goals and available slots.",
-    whatsappBtn: "Chat with Coach Nouh on WhatsApp",
+      "Connect directly with Coach Mohammed via WhatsApp to discuss your goals and available slots.",
+    whatsappBtn: "Chat with Coach Mohammed on WhatsApp",
     whatsappMessage:
-      "Hello Coach Nouh, I would like to inquire about your private coaching sessions and schedule.",
+      "Hello Coach Mohammed, I would like to inquire about your private coaching sessions and schedule.",
 
     faqs: [
       {
@@ -236,7 +236,7 @@ export default function FaqSection({
           })}
         </div>
 
-        {/* کارت ارتباط مستقیم واتس‌اپ با کابتن نوح (تراز دقیق، رنگ سالید مات و دکمه متقارن) */}
+        {/* کارت ارتباط مستقیم واتس‌اپ با کابتن محمد (تراز دقیق، رنگ سالید مات و دکمه متقارن) */}
         <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-6 shadow-xl antialiased">
           <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 text-start">
             {/* آیکون با پس‌زمینه سالید ضد دورنگ‌شدگی و تراز با تیتر در موبایل */}

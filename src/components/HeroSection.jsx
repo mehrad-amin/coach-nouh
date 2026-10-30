@@ -37,7 +37,7 @@ const HERO_CONTENT = {
       "أسلوب تدريب مرن ومباشر يتلائم تماماً مع كافة ظروفك ومواعيدك اليومية. لا ندرّبك لتبقى بحاجة دائمة لتواجد المدرب، بل لتمتلك الوعي الحركي والقدرة على مواصلة التدريب بنفسك وبثقة كاملة بعد انتهاء البرنامج.",
     feature1: "التركيز التام على المرونة واللياقة",
     feature2: "عدة بسيطة وبرنامج يتكيف معك",
-    ctaPrimary: "تواصل مع كوتش نوح",
+    ctaPrimary: "تواصل مع كوتش محمد",
     ctaSecondary: "الحاسبة",
     footerLocation: "جلسات تدريب شخصية حضورية ومخصصة في سلطنة عُمان",
     whatsappUrl:
@@ -77,11 +77,11 @@ const HERO_CONTENT = {
       "A flexible and direct coaching methodology tailored around your daily routine. We don't train you to remain reliant on a coach, but to equip you with the skill and confidence to train on your own for life.",
     feature1: "Focused on mobility & physical fitness",
     feature2: "Minimal gear with an adaptable routine",
-    ctaPrimary: "Chat with Coach Nouh",
+    ctaPrimary: "Chat with Coach Mohammed",
     ctaSecondary: "Calculator",
     footerLocation: "Private In-Person Personal Coaching Sessions in Oman",
     whatsappUrl:
-      "https://wa.me/96894486154?text=Hello%20Coach%20Nouh,%20I'd%20like%20to%20inquire%20about%20your%20personal%20coaching%20sessions",
+      "https://wa.me/96894486154?text=Hello%20Coach%20Mohammed,%20I'd%20like%20to%20inquire%20about%20your%20personal%20coaching%20sessions",
     cards: [
       {
         title: "Mobility & Fitness",
@@ -254,17 +254,19 @@ export default function HeroSection({ lang = "ar" }) {
           muted
           playsInline
           preload="auto"
-          poster="/images/coach-hero-poster.jpg"
-          className="w-full h-full object-cover object-[50%_12%] sm:object-[50%_15%] lg:object-[62%_20%] opacity-100"
+          poster="/images/coach-hero-poster-mobile.jpg"
+          className="w-full h-full object-cover object-center opacity-100"
         >
+          {/* ویدیوی عمودی سبک مخصوص گوشی */}
           <source
             media="(max-width: 768px)"
             src="/videos/coach-hero-mobile.mp4"
             type="video/mp4"
           />
+          {/* ویدیوی افقی باکیفیت مخصوص لپ‌تاپ و مانیتور */}
           <source
             media="(min-width: 769px)"
-            src="/videos/coach-hero.mp4"
+            src="/videos/coach-hero-desktop.mp4"
             type="video/mp4"
           />
         </video>

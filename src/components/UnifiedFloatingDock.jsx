@@ -134,7 +134,7 @@ export default function UnifiedFloatingDock({ lang = "ar" }) {
               </div>
             )}
 
-            {/* ۲. بج کالری محاسبه‌شده از ماشین‌حساب نوح */}
+            {/* ۲. بج کالری محاسبه‌شده از ماشین‌حساب محمد */}
             {calcData && (
               <div className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-white/[0.05] border border-white/10 px-2.5 py-1.5 text-white shadow-xs">
                 <Flame className="w-3.5 h-3.5 text-amber-400 fill-current shrink-0" />

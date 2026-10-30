@@ -120,20 +120,20 @@ function Contact3DCard({ children, className = "" }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* دیتای رسمی اطلاعات تماس کابتن نوح بن عیسی در عمان                          */
+/* دیتای رسمی اطلاعات تماس کابتن محمد بن عیسی در عمان                          */
 /* -------------------------------------------------------------------------- */
 const CONTACT_DATA = {
   ar: {
-    sectionBadge: "قنوات التواصل المباشر • كوتش نوح",
+    sectionBadge: "قنوات التواصل المباشر • كوتش محمد",
     sectionTitle: "معلومات التواصل ومواقع التدريب",
     sectionSubtitle:
       "لحجز الحصص الفردية، استشارات المفاصل والمرونة، والتنسيق الميداني في سلطنة عُمان (مسقط والسويق).",
 
     phoneRaw: "+96894486154",
     phoneDisplay: "+968 9448 6154",
-    email: "nouh7878@gmail.com",
-    instagramUsername: "nouh_m95",
-    instagramUrl: "https://instagram.com/nouh_m95",
+    email: "Mohammed7878@gmail.com",
+    instagramUsername: "Mohammed_m95",
+    instagramUrl: "https://instagram.com/Mohammed_m95",
     snapchatUrl: "https://t.snapchat.com/h0TL38t9",
     snapchatHandle: "h0TL38t9",
     whatsappUrl:
@@ -151,12 +151,12 @@ const CONTACT_DATA = {
     },
     card2: {
       title: "المحادثة والمنصات الرسمية",
-      desc: "قنوات التواصل الفوري والمتابعة المباشرة مع الكابتن نوح بن عيسى:",
-      whatsappTitle: "واتساب كوتش نوح",
+      desc: "قنوات التواصل الفوري والمتابعة المباشرة مع الكابتن محمد بن عيسى:",
+      whatsappTitle: "واتساب كوتش محمد",
       instagramTitle: "إنستغرام الرسمي",
       snapchatTitle: "سناب شات",
       emailTitle: "البريد الإلكتروني",
-      note: "استجابة مباشرة من الكابتن نوح لتنسيق أهدافك الحركية والبدنية.",
+      note: "استجابة مباشرة من الكابتن محمد لتنسيق أهدافك الحركية والبدنية.",
     },
     card3: {
       status: "متاح حضورياً في مسقط والسويق",
@@ -183,20 +183,20 @@ const CONTACT_DATA = {
   },
 
   en: {
-    sectionBadge: "DIRECT CHANNELS • COACH NOUH",
+    sectionBadge: "DIRECT CHANNELS • Coach Mohammed",
     sectionTitle: "Get in Touch & Training Locations",
     sectionSubtitle:
       "For 1-on-1 private coaching sessions, kinetic mobility inquiries, and scheduling in Oman (Muscat & Al-Suwiq).",
 
     phoneRaw: "+96894486154",
     phoneDisplay: "+968 9448 6154",
-    email: "nouh7878@gmail.com",
-    instagramUsername: "nouh_m95",
-    instagramUrl: "https://instagram.com/nouh_m95",
+    email: "Mohammed7878@gmail.com",
+    instagramUsername: "Mohammed_m95",
+    instagramUrl: "https://instagram.com/Mohammed_m95",
     snapchatUrl: "https://t.snapchat.com/h0TL38t9",
     snapchatHandle: "h0TL38t9",
     whatsappUrl:
-      "https://wa.me/96894486154?text=Hello%20Coach%20Nouh,%20I%20would%20like%20to%20inquire%20about%20personal%20coaching",
+      "https://wa.me/96894486154?text=Hello%20Coach%20Mohammed,%20I%20would%20like%20to%20inquire%20about%20personal%20coaching",
 
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Muscat,+Oman",
@@ -210,12 +210,12 @@ const CONTACT_DATA = {
     },
     card2: {
       title: "Direct Chat & Digital Channels",
-      desc: "Official channels for immediate updates and consultation with Coach Nouh:",
+      desc: "Official channels for immediate updates and consultation with Coach Mohammed:",
       whatsappTitle: "Direct WhatsApp",
       instagramTitle: "Official Instagram",
       snapchatTitle: "Official Snapchat",
       emailTitle: "Direct Email",
-      note: "Prompt direct response from Coach Nouh tailored around your goals.",
+      note: "Prompt direct response from Coach Mohammed tailored around your goals.",
     },
     card3: {
       status: "Active in Muscat & Al-Suwiq",
@@ -325,7 +325,7 @@ export default function ContactSection({ lang = "ar" }) {
             </div>
           </Contact3DCard>
 
-          {/* کارت ۲: شبکه‌های اجتماعی رسمی مربی نوح */}
+          {/* کارت ۲: شبکه‌های اجتماعی رسمی مربی محمد */}
           <Contact3DCard>
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
