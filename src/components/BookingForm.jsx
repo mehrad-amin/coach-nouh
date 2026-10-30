@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import {
   Activity,
   Flame,
-  Sparkles,
+  Target,
   ShieldCheck,
   Check,
   X,
@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
-/* لیست کشورهای حوزه خلیج و منطقه با پیش‌فرض سلطنت عُمان                      */
+/* لیست کشورهای حوزه خلیج و منطقه با پیش‌فرض سلطنت عُمان                       */
 /* -------------------------------------------------------------------------- */
 const ARAB_COUNTRIES = [
   { code: "+968", flag: "🇴🇲", nameAr: "عُمان", nameEn: "Oman" },
@@ -36,9 +36,9 @@ const ARAB_COUNTRIES = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/* بسته‌های سه‌گانه رسمی کابتن محمد                                              */
+/* بسته‌های سه‌گانه رسمی کابتن محمد                                            */
 /* -------------------------------------------------------------------------- */
-const DEFAULT_Mohammed_PLANS = {
+const DEFAULT_MOHAMMED_PLANS = {
   ar: [
     {
       id: "bronze_plan",
@@ -84,17 +84,17 @@ const DEFAULT_Mohammed_PLANS = {
 };
 
 /* -------------------------------------------------------------------------- */
-/* محتوای متنی استعلام و ثبت‌نام به زبان عربی سفید و سلیس                     */
+/* محتوای متنی استعلام و ثبت‌نام                                               */
 /* -------------------------------------------------------------------------- */
 const BOOKING_UI_TEXT = {
   ar: {
     sectionBadge: "الخطوة النهائية • كوتش محمد",
     sectionTitle: "استمارة التسجيل وتأكيد الحجز المباشر",
     sectionSubtitle:
-      "تم ربط بياناتك الحيوية واحتياجك الأيضي تلقائياً بهذه الاستمارة ليتسلمها الكابتن محمد بن عيسى كاملة لبدء التنسيق معك.",
+      "تم ربط بياناتك الحيوية وأولويات مفاصلك تلقائياً بهذه الاستمارة ليتسلمها الكابتن محمد بن عيسى كاملة لبدء التنسيق معك.",
 
     badgesContainerTitle: "البيانات المسجلة تلقائياً من جولتك في الموقع:",
-    badgeBiomechanicsTitle: "تقييم المرونة والحركة",
+    badgeBiomechanicsTitle: "أولوية فحص المفاصل",
     badgeCalculatorTitle: "الاحتياج الأيضي المقترح",
     badgePlanTitle: "الباقة التدريبية",
     screeningFocusLabel: "أولوية التركيز:",
@@ -164,6 +164,7 @@ const BOOKING_UI_TEXT = {
       waBiometricsHeader: "📊 ملخص تقييمي البدني:",
       waTargetCal: "السعرات المستهدفة:",
       waWeight: "الوزن الحالي:",
+      waJointFocus: "المفصل المطلوب مراجعته:",
       waTrainingDays: "أيام التمرين المفضلة:",
       waLocation: "منطقة التدريب:",
       waReady: "بانتظار مراجعتك وتنسيق موعد الحصة الأولى معك إن شاء الله.",
@@ -174,10 +175,10 @@ const BOOKING_UI_TEXT = {
     sectionBadge: "FINAL STEP • Coach Mohammed",
     sectionTitle: "Application & Session Onboarding",
     sectionSubtitle:
-      "All your dynamic biometric inputs and kinetic priorities are synced to this form directly for Coach Mohammed Bin Issa.",
+      "All your dynamic biometric inputs, joint focus, and kinetic priorities are synced to this form directly for Coach Mohammed Bin Issa.",
 
     badgesContainerTitle: "Auto-Captured Metrics & Choices from Your Session:",
-    badgeBiomechanicsTitle: "Mobility & Kinetic Screening",
+    badgeBiomechanicsTitle: "Joint Focus Priority",
     badgeCalculatorTitle: "Metabolic Caloric Target",
     badgePlanTitle: "Selected Coaching Plan",
     screeningFocusLabel: "Screening Focus:",
@@ -248,6 +249,7 @@ const BOOKING_UI_TEXT = {
       waBiometricsHeader: "📊 My Physical Profile Summary:",
       waTargetCal: "Target Calories:",
       waWeight: "Current Weight:",
+      waJointFocus: "Joint Priority Area:",
       waTrainingDays: "Target Days/Week:",
       waLocation: "Preferred Location:",
       waReady: "Looking forward to coordinating our first session schedule.",
@@ -259,12 +261,10 @@ export default function BookingForm({ lang = "ar" }) {
   const isRtl = lang === "ar";
   const ui = BOOKING_UI_TEXT[lang] || BOOKING_UI_TEXT.ar;
   const availablePlans =
-    DEFAULT_Mohammed_PLANS[lang] || DEFAULT_Mohammed_PLANS.ar;
+    DEFAULT_MOHAMMED_PLANS[lang] || DEFAULT_MOHAMMED_PLANS.ar;
 
-  // ۱. پیش‌شماره عمان به عنوان پیش‌فرض
   const [countryCode, setCountryCode] = useState("+968");
 
-  // ۲. استیت فرم
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -276,7 +276,6 @@ export default function BookingForm({ lang = "ar" }) {
     notes: "",
   });
 
-  // ۳. استیت‌های ذخیره‌شده از سایر سکشن‌ها
   const [calcData, setCalcData] = useState(null);
   const [biomechanicsData, setBiomechanicsData] = useState(null);
   const [selectedPlanMeta, setSelectedPlanMeta] = useState(null);
@@ -354,6 +353,9 @@ export default function BookingForm({ lang = "ar" }) {
   const handleRemoveBiomechanics = useCallback(() => {
     try {
       sessionStorage.removeItem("user_biomechanics_audit");
+      window.dispatchEvent(
+        new CustomEvent("biomechanics_audit_updated", { detail: null }),
+      );
     } catch (_) {}
     setBiomechanicsData(null);
   }, []);
@@ -388,7 +390,6 @@ export default function BookingForm({ lang = "ar" }) {
     }
   };
 
-  // سابمیت فرم
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({
@@ -505,7 +506,7 @@ export default function BookingForm({ lang = "ar" }) {
     }
   };
 
-  // کارت نتیجه موفقیت‌آمیز
+  // رندر کارت موفقیت و ساخت لینک مستقیم واتس‌اپ
   if (status.success) {
     const cleanCoachPhone = "96894486154";
     const currentLocationLabel =
@@ -520,13 +521,17 @@ export default function BookingForm({ lang = "ar" }) {
       ? `\n${ui.success.waWeight} *${calcData.weight} kg*`
       : "";
 
+    const jointText = biomechanicsData
+      ? `\n${ui.success.waJointFocus} *${isRtl ? biomechanicsData.shortNameAr || biomechanicsData.nameAr || biomechanicsData.name : biomechanicsData.shortNameEn || biomechanicsData.nameEn || biomechanicsData.name}*`
+      : "";
+
     const trainingDaysText = formData.trainingDays
       ? `\n${ui.success.waTrainingDays} *${formData.trainingDays} ${ui.trainingDaysUnit}*`
       : "";
 
     const locationText = `\n${ui.success.waLocation} *${currentLocationLabel}*`;
 
-    const waMessage = `${ui.success.waHello}\n${ui.success.waIm} *${formData.name}*، ${ui.success.waRegistered}\n📌 *${currentPlan.title} (${currentPlan.price} - ${currentPlan.duration})*\n📋 ${ui.success.fileIdLabel} \`\`\`${resultMeta.fileId}\`\`\`\n\n${ui.success.waBiometricsHeader}${locationText}${weightText}${calText}${trainingDaysText}\n\n${ui.success.waReady}`;
+    const waMessage = `${ui.success.waHello}\n${ui.success.waIm} *${formData.name}*، ${ui.success.waRegistered}\n📌 *${currentPlan.title} (${currentPlan.price} - ${currentPlan.duration})*\n📋 ${ui.success.fileIdLabel} \`\`\`${resultMeta.fileId}\`\`\`\n\n${ui.success.waBiometricsHeader}${locationText}${weightText}${calText}${jointText}${trainingDaysText}\n\n${ui.success.waReady}`;
 
     const waLink = `https://wa.me/${cleanCoachPhone}?text=${encodeURIComponent(
       waMessage,
@@ -546,7 +551,7 @@ export default function BookingForm({ lang = "ar" }) {
 
         <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#08120d]/95 p-8 sm:p-12 text-center shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl antialiased">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_20px_rgba(167,217,87,0.3)]">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-[0_0_20px_rgba(167,217,87,0.3)]">
               <Check className="h-8 w-8 stroke-[3]" />
             </div>
 
@@ -619,7 +624,6 @@ export default function BookingForm({ lang = "ar" }) {
       dir={isRtl ? "rtl" : "ltr"}
       className="relative w-full py-16 md:py-24 overflow-hidden bg-[#06100b] selection:bg-athar-lime selection:text-athar-forest-deep"
     >
-      {/* هاله‌های نوری استودیویی در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
         <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
@@ -627,7 +631,6 @@ export default function BookingForm({ lang = "ar" }) {
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* هدر بخش فرم */}
         <div className="mb-10 text-center md:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 shadow-athar-soft backdrop-blur-md mb-3.5">
             <Send className="h-3.5 w-3.5 text-athar-lime animate-pulse" />
@@ -645,20 +648,17 @@ export default function BookingForm({ lang = "ar" }) {
           </p>
         </div>
 
-        {/* کارت اصلی فرم (دارک گلس‌مورفیسم لوکس) */}
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#08120d]/95 p-6 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl text-start antialiased">
-          {/* بخش بج‌های زنده الصاق‌شده */}
           {hasAnyBadge && (
             <div className="mb-8 space-y-3 rounded-2xl border border-white/10 bg-black/40 p-4 sm:p-5">
               <div className="flex items-center gap-2 text-xs font-bold text-athar-lime">
-                <Sparkles className="h-4 w-4" />
+                <Target className="h-4 w-4" />
                 <span>{ui.badgesContainerTitle}</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
-                {/* ۱. بج بیومکانیک */}
                 {biomechanicsData && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-sm">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-xs">
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-lime">
@@ -693,9 +693,8 @@ export default function BookingForm({ lang = "ar" }) {
                   </div>
                 )}
 
-                {/* ۲. بج ماشین‌حساب محمد */}
                 {calcData && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-sm">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-xs">
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-400">
@@ -735,9 +734,8 @@ export default function BookingForm({ lang = "ar" }) {
                   </div>
                 )}
 
-                {/* ۳. بج پلن قیمتی */}
                 {selectedPlanMeta && (
-                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-lime/40 bg-athar-lime/10 p-3 shadow-sm">
+                  <div className="relative flex flex-col justify-between rounded-xl border border-athar-lime/40 bg-athar-lime/10 p-3 shadow-xs">
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-athar-lime">
@@ -773,9 +771,7 @@ export default function BookingForm({ lang = "ar" }) {
             </div>
           )}
 
-          {/* فرم ثبت اطلاعات */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* ۱. انتخاب بسته تمرینی */}
             <div>
               <label className="mb-2.5 block text-xs font-bold text-slate-200">
                 {ui.planSectionTitle} <span className="text-red-400">*</span>
@@ -831,7 +827,6 @@ export default function BookingForm({ lang = "ar" }) {
               </div>
             </div>
 
-            {/* ۲. نام و شماره تلفن */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -897,7 +892,6 @@ export default function BookingForm({ lang = "ar" }) {
               </div>
             </div>
 
-            {/* ۳. انتخاب لوکیشن در عمان و هدف */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -953,7 +947,6 @@ export default function BookingForm({ lang = "ar" }) {
               </div>
             </div>
 
-            {/* ۴. سابقه تمرینی و روزهای تمرین در هفته */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <span className="mb-2 block text-xs font-bold text-slate-200">
@@ -1019,7 +1012,6 @@ export default function BookingForm({ lang = "ar" }) {
               </div>
             </div>
 
-            {/* ۵. ملاحظات سلامت و آسیب‌دیدگی‌ها */}
             <div>
               <label
                 htmlFor="booking-notes"
@@ -1038,7 +1030,6 @@ export default function BookingForm({ lang = "ar" }) {
               />
             </div>
 
-            {/* کادر هشدار تکمیل ماشین‌حساب */}
             {status.error && (
               <div
                 className={`rounded-2xl border p-4 text-xs transition-all flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 ${
@@ -1065,7 +1056,6 @@ export default function BookingForm({ lang = "ar" }) {
               </div>
             )}
 
-            {/* دکمه ثبت نهایی */}
             <button
               type="submit"
               disabled={status.loading}

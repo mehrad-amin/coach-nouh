@@ -12,6 +12,9 @@ import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import BookingForm from "@/components/BookingForm";
+import TransformationsCarousel from "@/components/TransformationsSection";
+import TransformationsSection from "@/components/TransformationsSection";
+import BiomechanicsScanner from "@/components/BiomechanicsScanner";
 
 export default function Home() {
   const [lang, setLang] = useState("ar");
@@ -30,7 +33,11 @@ export default function Home() {
       <main>
         <HeroSection lang={lang} />
         <MethodologySection lang={lang} />
+        {/* ۱. نمایش تحولات فیزیکی بلافاصله بعد از متدولوژی جهت اثبات عملی ادعاها */}
+        <TransformationsSection lang={lang} />
         <TestimonialsSection lang={lang} />
+        {/* ۱. ارزیابی مفاصل و پویایی اسکلتی با مانکن سه‌بعدی */}
+        <BiomechanicsScanner lang={lang} />
         <FitnessCalculator lang={lang} />
         <PricingSection lang={lang} />
         <FaqSection lang={lang} />

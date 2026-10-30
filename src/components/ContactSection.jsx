@@ -129,15 +129,15 @@ const CONTACT_DATA = {
     sectionSubtitle:
       "لحجز الحصص الفردية، استشارات المفاصل والمرونة، والتنسيق الميداني في سلطنة عُمان (مسقط والسويق).",
 
-    phoneRaw: "+96894486154",
-    phoneDisplay: "+968 9448 6154",
-    email: "Mohammed7878@gmail.com",
-    instagramUsername: "Mohammed_m95",
-    instagramUrl: "https://instagram.com/Mohammed_m95",
-    snapchatUrl: "https://t.snapchat.com/h0TL38t9",
-    snapchatHandle: "h0TL38t9",
+    phoneRaw: "+96894488888",
+    phoneDisplay: "+968 9448 8888",
+    email: "Mohammed@gmail.com",
+    instagramUsername: "Mohammed_m80",
+    instagramUrl: "https://instagram.com/Mohammed_m80",
+    snapchatUrl: "https://t.snapchat.com/m0TL38t9",
+    snapchatHandle: "m0TL38t9",
     whatsappUrl:
-      "https://wa.me/96894486154?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
+      "https://wa.me/96894488888?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
 
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Muscat,+Oman",
@@ -188,15 +188,15 @@ const CONTACT_DATA = {
     sectionSubtitle:
       "For 1-on-1 private coaching sessions, kinetic mobility inquiries, and scheduling in Oman (Muscat & Al-Suwiq).",
 
-    phoneRaw: "+96894486154",
-    phoneDisplay: "+968 9448 6154",
-    email: "Mohammed7878@gmail.com",
-    instagramUsername: "Mohammed_m95",
-    instagramUrl: "https://instagram.com/Mohammed_m95",
-    snapchatUrl: "https://t.snapchat.com/h0TL38t9",
-    snapchatHandle: "h0TL38t9",
+    phoneRaw: "+96894488888",
+    phoneDisplay: "+968 9448 8888",
+    email: "Mohammed@gmail.com",
+    instagramUsername: "Mohammed_m80",
+    instagramUrl: "https://instagram.com/Mohammed_m80",
+    snapchatUrl: "https://t.snapchat.com/m0TL38t9",
+    snapchatHandle: "m0TL38t9",
     whatsappUrl:
-      "https://wa.me/96894486154?text=Hello%20Coach%20Mohammed,%20I%20would%20like%20to%20inquire%20about%20personal%20coaching",
+      "https://wa.me/96894488888?text=Hello%20Coach%20Mohammed,%20I%20would%20like%20to%20inquire%20about%20personal%20coaching",
 
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Muscat,+Oman",
