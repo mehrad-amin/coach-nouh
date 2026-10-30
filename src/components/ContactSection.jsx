@@ -8,7 +8,6 @@ import {
   MapPin,
   ExternalLink,
   Clock,
-  Sparkles,
   Mail,
   Compass,
   Radio,
@@ -137,7 +136,7 @@ const CONTACT_DATA = {
     snapchatUrl: "https://t.snapchat.com/m0TL38t9",
     snapchatHandle: "m0TL38t9",
     whatsappUrl:
-      "https://wa.me/96894488888?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%86%D9%88%D8%AD%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
+      "https://wa.me/96894488888?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A",
 
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Muscat,+Oman",
@@ -254,13 +253,8 @@ export default function ContactSection({ lang = "ar" }) {
     >
       {/* هاله‌های نوری استودیویی در پس‌زمینه */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* هاله بالایی */}
         <div className="absolute -top-24 left-1/4 w-80 sm:w-[600px] h-80 sm:h-[450px] rounded-full bg-radial from-athar-lime/10 via-emerald-500/5 to-transparent blur-[120px]" />
-
-        {/* هاله میانی سمت راست */}
         <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] rounded-full bg-radial from-[#1e6347]/20 via-transparent to-transparent blur-[110px]" />
-
-        {/* هاله پایینی */}
         <div className="absolute -bottom-24 left-1/3 w-80 sm:w-[550px] h-80 sm:h-[550px] rounded-full bg-radial from-athar-lime/10 via-transparent to-transparent blur-[130px]" />
       </div>
 
@@ -286,10 +280,9 @@ export default function ContactSection({ lang = "ar" }) {
         {/* شبکه ۳ کارته اطلاعات تماس */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 items-stretch">
           {/* کارت ۱: تماس مستقیم و ساعات کاری */}
-          {/* کارت ۱: تماس مستقیم و ساعات کاری */}
           <Contact3DCard>
             <div>
-              {/* آیکون تلفن با پس‌زمینه سالید و بدون نفوذ نور دو رنگ */}
+              {/* باکس آیکون تلفن با پس‌زمینه سالید و بدون نفوذ نور دو رنگ */}
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
                 <Phone className="h-5 w-5" />
               </div>
@@ -301,7 +294,7 @@ export default function ContactSection({ lang = "ar" }) {
                 {ui.card1.desc}
               </p>
 
-              {/* دکمه شماره تلفن: رنگ سالید یکنواخت و ضد دورنگ شدگی در موبایل */}
+              {/* دکمه شماره تلفن با رنگ سالید یکنواخت */}
               <div className="mt-5">
                 <a
                   href={`tel:${ui.phoneRaw}`}
@@ -328,7 +321,8 @@ export default function ContactSection({ lang = "ar" }) {
           {/* کارت ۲: شبکه‌های اجتماعی رسمی مربی محمد */}
           <Contact3DCard>
             <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
+              {/* باکس آیکون چت هماهنگ با کارت ۱ و ۳ با پس‌زمینه مات سالید */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
                 <MessageSquare className="h-5 w-5" />
               </div>
 
@@ -445,10 +439,11 @@ export default function ContactSection({ lang = "ar" }) {
           <Contact3DCard>
             <div>
               <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-athar-lime/15 text-athar-lime shadow-[0_0_15px_rgba(167,217,87,0.2)]">
+                {/* باکس آیکون لوکیشن دقیقاً هم‌رنگ و سالید با کارت‌های ۱ و ۲ */}
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
                   <MapPin className="h-5 w-5" />
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-athar-lime/30 bg-athar-lime/10 px-3 py-1 text-[11px] font-bold text-athar-lime shadow-xs">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-athar-lime/30 bg-[#0c1f15] px-3 py-1 text-[11px] font-bold text-athar-lime shadow-xs">
                   <span className="h-2 w-2 rounded-full bg-athar-lime animate-pulse" />
                   <span>{ui.card3.status}</span>
                 </span>

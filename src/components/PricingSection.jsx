@@ -17,7 +17,7 @@ const PRICING_CONTENT = {
     popularBadge: "الخيار الأكثر طلباً",
     selectedTag: "تم التحديد",
     selectBtn: "اختيار هذه الباقة",
-    selectedBtn: "تم اختيار الباقة ✓",
+    selectedBtn: "تم اختيار الباقة",
     currency: "ر.ع",
     perPerson: "/ شهرياً للشخص",
 
@@ -94,7 +94,7 @@ const PRICING_CONTENT = {
     popularBadge: "Most Recommended",
     selectedTag: "Selected",
     selectBtn: "Select This Plan",
-    selectedBtn: "Plan Selected ✓",
+    selectedBtn: "Plan Selected",
     currency: "OMR",
     perPerson: "/ Month per person",
 
@@ -199,7 +199,6 @@ function PricingCard({ plan, ui, isSelected, onSelect }) {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onPointerCancel={handlePointerLeave}
-      /* در حالت عادی استایل اینلاین undefined است تا فونت‌ها کاملاً شارپ و طبیعی رندر شوند */
       style={
         isInteracting
           ? {
@@ -276,17 +275,18 @@ function PricingCard({ plan, ui, isSelected, onSelect }) {
         {/* ۵. خط تفکیک‌کننده مماس */}
         <div className="w-full border-t border-white/15 my-5" />
 
-        {/* ۶. لیست ۶ ویژگی اختصاصی با رندر شفاف */}
+        {/* ۶. لیست ۶ ویژگی اختصاصی (اصلاح‌شده با باکس سالید ضد دورنگ‌شدگی) */}
         <ul className="space-y-3 text-start">
           {plan.features.map((feat, index) => (
             <li
               key={index}
               className="flex items-start gap-2.5 text-xs sm:text-[13px] leading-relaxed text-slate-200 font-medium"
             >
-              <div className="rounded-lg border border-athar-lime/40 bg-athar-lime/15 p-1 mt-0.5 shrink-0 text-athar-lime">
-                <Check className="w-3 h-3 stroke-[2.5]" />
+              {/* باکس تیک با رنگ مات و سالید استودیویی (#0c1f15) */}
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border border-athar-lime/40 bg-[#0c1f15] text-athar-lime shadow-xs mt-0.5">
+                <Check className="w-3 h-3 stroke-[3]" />
               </div>
-              <span>{feat}</span>
+              <span className="flex-1">{feat}</span>
             </li>
           ))}
         </ul>
@@ -425,7 +425,7 @@ export default function PricingSection({ lang = "ar" }) {
 
         {/* باکس شرایط شفافیت برگرفته از یادداشت مربی محمد */}
         <div className="mt-12 rounded-3xl border border-white/15 bg-[#08130e] p-5 sm:p-7 shadow-2xl antialiased">
-          {/* ردیف هدر: قرارگیری آیکون با رنگ سالید در کنار تیتر (تراز دقیق در موبایل و دسکتاپ) */}
+          {/* ردیف هدر: قرارگیری آیکون با رنگ سالید در کنار تیتر */}
           <div className="flex items-center gap-3 sm:gap-3.5 mb-4 text-start">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-athar-lime/30 bg-[#0c1f15] text-athar-lime shadow-xs">
               <Info className="h-5 w-5" />
