@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
       className={`${cairo.variable} ${jakarta.variable}`}
     >
       <head>
-        {/* پیش‌بارگذاری پوسترها */}
+        {/* پیش‌بارگذاری فوق‌سریع پوستر فریم اول مخصوص موبایل */}
         <link
           rel="preload"
           href="/images/coach-hero-poster-mobile.jpg"
@@ -52,28 +52,12 @@ export default function RootLayout({ children }) {
           media="(max-width: 768px)"
           fetchPriority="high"
         />
+
+        {/* پیش‌بارگذاری فوق‌سریع پوستر فریم اول مخصوص دسکتاپ */}
         <link
           rel="preload"
           href="/images/coach-hero-poster-desktop.jpg"
           as="image"
-          media="(min-width: 769px)"
-          fetchPriority="high"
-        />
-
-        {/* بافر آنی ویدیوها */}
-        <link
-          rel="preload"
-          href="/videos/coach-hero-mobile.mp4"
-          as="video"
-          type="video/mp4"
-          media="(max-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="/videos/coach-hero-desktop.mp4"
-          as="video"
-          type="video/mp4"
           media="(min-width: 769px)"
           fetchPriority="high"
         />

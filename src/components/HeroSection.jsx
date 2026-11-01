@@ -1,7 +1,7 @@
 // src/components/HeroSection.jsx
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -59,7 +59,7 @@ const HERO_CONTENT = {
         title: "مرونة في البرنامج",
         desc: "حصص محددة باليوم والوقت",
         icon: Calendar,
-        accent: "text-athar-lime", // تغییر از text-athar-cream به text-athar-lime
+        accent: "text-athar-lime",
       },
       {
         title: "عدة بسيطة وفعالة",
@@ -99,7 +99,7 @@ const HERO_CONTENT = {
         title: "Flexible Schedule",
         desc: "Custom day & time sessions",
         icon: Calendar,
-        accent: "text-athar-lime", // تغییر از text-athar-cream به text-athar-lime
+        accent: "text-athar-lime",
       },
       {
         title: "Minimal Gear",
@@ -119,6 +119,9 @@ export default function HeroSection({ lang = "ar" }) {
   const videoRef = useRef(null);
   const videoContainerRef = useRef(null);
   const cardsRef = useRef([]);
+
+  // وضعیت پخش زنده ویدیو برای محو کردن نرم لایه پوستر
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -200,7 +203,6 @@ export default function HeroSection({ lang = "ar" }) {
           opacity: 1,
           y: 0,
           scale: 1,
-          stagger: 0.12,
           duration: 0.8,
           ease: "back.out(1.5)",
         },
@@ -241,12 +243,35 @@ export default function HeroSection({ lang = "ar" }) {
       className="relative min-h-[100svh] w-full overflow-hidden bg-[#06100b] flex flex-col justify-between selection:bg-athar-lime selection:text-athar-forest-deep"
     >
       {/* ======================================================== */}
-      {/* ۱. ویدیوی تمام‌صفحه با نورپردازی طبیعی و یکنواخت          */}
+      {/* ۱. کانتینر ویدیو و پوستر ریسپانسیو فوق‌سریع              */}
       {/* ======================================================== */}
       <div
         ref={videoContainerRef}
         className="absolute inset-0 z-0 w-full h-full pointer-events-none overflow-hidden"
       >
+        {/* لایه پوستر بومی HTML با مدیاکوئری (بدون تاخیر هیدریشن جاوااسکریپت) */}
+        <picture
+          className={`absolute inset-0 w-full h-full pointer-events-none select-none transition-opacity duration-700 z-0 ${
+            isVideoPlaying ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/coach-hero-poster-mobile.jpg"
+          />
+          <source
+            media="(min-width: 769px)"
+            srcSet="/images/coach-hero-poster-desktop.jpg"
+          />
+          <img
+            src="/images/coach-hero-poster-desktop.jpg"
+            alt="Coach Mohammed Hero"
+            fetchPriority="high"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
+
+        {/* تگ ویدیوی پس‌زمینه */}
         <video
           ref={videoRef}
           autoPlay
@@ -254,16 +279,16 @@ export default function HeroSection({ lang = "ar" }) {
           muted
           playsInline
           preload="auto"
-          poster="/images/coach-hero-poster-mobile.jpg"
-          className="w-full h-full object-cover object-center opacity-100"
+          disablePictureInPicture
+          disableRemotePlayback
+          onPlaying={() => setIsVideoPlaying(true)}
+          className="w-full h-full object-cover object-center pointer-events-none select-none relative z-0"
         >
-          {/* ویدیوی عمودی سبک مخصوص گوشی */}
           <source
             media="(max-width: 768px)"
             src="/videos/coach-hero-mobile.mp4"
             type="video/mp4"
           />
-          {/* ویدیوی افقی باکیفیت مخصوص لپ‌تاپ و مانیتور */}
           <source
             media="(min-width: 769px)"
             src="/videos/coach-hero-desktop.mp4"
@@ -273,28 +298,20 @@ export default function HeroSection({ lang = "ar" }) {
       </div>
 
       {/* ======================================================== */}
-      {/* ۲. پوشش تیرگی یکدست سینمایی (بدون هیچ خط، پرده یا ترک)    */}
+      {/* ۲. پوشش تیرگی یکدست سینمایی                              */}
       {/* ======================================================== */}
       <div className="absolute inset-0 z-1 pointer-events-none overflow-hidden">
-        {/* ۱. لایه تیره یکنواخت استودیویی روی کل تصویر (روشنایی یکسان در سراسر مانیتور) */}
         <div className="absolute inset-0 bg-black/30" />
-
-        {/* ۲. وینیت نرم لنز دوربین سینمایی در گوشه‌ها بدون نصف کردن کادر مربی */}
         <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_55%,rgba(6,16,11,0.55)_100%)]" />
-
-        {/* ۳. گرادیان عمودی موبایل (دقیقاً نسخه تأییدشده قبلی) */}
         <div className="block lg:hidden absolute inset-0 bg-gradient-to-t from-[#06100b] via-[#06100b]/40 to-transparent" />
-
-        {/* ۴. اتصال محو و بدون درز به سکشن متدولوژی */}
         <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-b from-transparent to-[#06100b]" />
       </div>
 
       {/* ======================================================== */}
-      {/* ۳. محتوای متنی، تیترها و دکمه‌های اقدام                    */}
+      {/* ۳. محتوای متنی، تیترها و دکمه‌های اقدام                 */}
       {/* ======================================================== */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-56 sm:pt-60 lg:pt-36 pb-4 my-auto flex flex-col justify-end lg:justify-center">
         <div className="max-w-2xl text-center lg:text-start flex flex-col items-center lg:items-start mx-auto lg:mx-0">
-          {/* نشان هویت مربی */}
           <div className="hero-anim-badge mb-2.5 sm:mb-3.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/55 border border-white/15 shadow-athar-soft backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-athar-lime animate-pulse" />
             <span className="text-[11px] sm:text-xs font-bold text-athar-cream tracking-wide">
@@ -302,22 +319,19 @@ export default function HeroSection({ lang = "ar" }) {
             </span>
           </div>
 
-          {/* تیتر اصلی با سایه شارپ سینمایی (خوانایی کامل بدون نیاز به کادر تیره مجزا) */}
           <h1 className="hero-anim-title text-2xl sm:text-4xl lg:text-[3.5rem] font-black leading-[1.25] sm:leading-[1.18] tracking-tight">
             <span className="text-white block mb-0.5 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
               {t.mainHook}
             </span>
-            <span className="inline-block bg-linear-to-l from-athar-lime via-[#c7f47e] to-white bg-clip-text text-transparent drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+            <span className="inline-block bg-gradient-to-l from-athar-lime via-[#c7f47e] to-white bg-clip-text text-transparent drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
               {t.mainHookHighlight}
             </span>
           </h1>
 
-          {/* توضیحات با سایه باکیفیت و خوانا */}
           <p className="hero-anim-desc mt-2.5 sm:mt-4 text-xs sm:text-base text-slate-100 leading-relaxed font-medium max-w-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] line-clamp-3 sm:line-clamp-none">
             {t.subtext}
           </p>
 
-          {/* ویژگی‌ها */}
           <div className="mt-3 sm:mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2 max-w-lg">
             <div className="hero-anim-pill inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 border border-white/15 backdrop-blur-md text-[10.5px] sm:text-xs font-bold text-white shadow-sm">
               <CheckCircle2 className="w-3.5 h-3.5 text-athar-lime shrink-0" />
@@ -329,9 +343,7 @@ export default function HeroSection({ lang = "ar" }) {
             </div>
           </div>
 
-          {/* دکمه‌های اکشن */}
           <div className="hero-anim-cta mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 w-full sm:w-auto">
-            {/* دکمه واتس‌اپ */}
             <a
               href={t.whatsappUrl}
               target="_blank"
@@ -347,7 +359,6 @@ export default function HeroSection({ lang = "ar" }) {
               )}
             </a>
 
-            {/* دکمه محاسبه‌گر */}
             <a
               href="#calculator"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs sm:text-sm backdrop-blur-md transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
@@ -390,7 +401,6 @@ export default function HeroSection({ lang = "ar" }) {
           })}
         </div>
 
-        {/* موقعیت مکانی مربی */}
         <div className="mt-2.5 text-center">
           <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] sm:text-xs font-semibold text-slate-300">
             <span className="w-1.5 h-1.5 rounded-full bg-athar-lime inline-block" />
